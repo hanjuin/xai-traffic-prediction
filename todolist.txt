@@ -1,0 +1,25 @@
+% References
+    x things i have done
+    - things i need to do
+    ? things need to be thinks
+    ~ partially done
+    ! things that is important
+    !! highly important
+
+% General
+    x project file created
+    x github sync
+
+% Traffic Prediction
+    !! Dataset from AT (pending)
+    ~ Dataset Cleaning
+    - XGBoost implementation
+    
+% XAI Implementation (SHAP)
+    - SHAP Implementation
+
+% Traffic Validation
+    - Study SUMO
+
+    
+    
