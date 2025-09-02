@@ -12,7 +12,8 @@
 
 % Traffic Prediction
     !! Dataset from AT (pending)
-    ~ Dataset Cleaning
+    x Dataset Cleaning 
+    ? might want to explore different interpolation method
     - XGBoost implementation
     
 % XAI Implementation (SHAP)
