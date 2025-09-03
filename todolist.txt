@@ -13,11 +13,12 @@
 % Traffic Prediction
     !! Dataset from AT (pending)
     x Dataset Cleaning 
+    - Automatic outlier detection
     ? might want to explore different interpolation method
-    - XGBoost implementation
+    x XGBoost implementation
     
 % XAI Implementation (SHAP)
-    - SHAP Implementation
+    x SHAP Implementation
 
 % Traffic Validation
     - Study SUMO
