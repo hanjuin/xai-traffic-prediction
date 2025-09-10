@@ -11,7 +11,7 @@
     x github sync
 
 % Traffic Prediction
-    !! Dataset from AT (pending)
+    x Dataset from AT (pending)
     x Dataset Cleaning 
     - Automatic outlier detection
     ? might want to explore different interpolation method
