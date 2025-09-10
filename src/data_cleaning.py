@@ -5,7 +5,8 @@ import os
 script_dir = os.path.dirname(os.path.abspath(__file__)) 
 
 def pre_processing_data() -> pd.DataFrame:
-    file_path = os.path.join(script_dir, "..", "data", "at-dataset", "Scats_Data.csv")
+    # file_path = os.path.join(script_dir, "..", "data", "at-dataset", "Scats_Data.csv")
+    file_path = os.path.join(script_dir, "..", "data", "at-dataset", "SCATS-data", "Scats-Data.csv")
 
     df = pd.read_csv(file_path, sep="\t")
 
@@ -69,6 +70,6 @@ if __name__ == "__main__":
     main_df = pd.DataFrame()
     df = pre_processing_data()
     main_df = interpolate_data(df)
-    file_path = os.path.join(script_dir, "..", "data", "at-dataset", "final_data.csv")
+    file_path = os.path.join(script_dir, "..", "data", "at-dataset", "SCATS-data", "Scats-Data-Clean.csv")
     main_df.to_csv(file_path, index=False)
     print(f"---Data cleaned and stored in {file_path}---")
