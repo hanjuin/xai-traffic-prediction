@@ -13,11 +13,10 @@
 % Traffic Prediction
     x Dataset from AT
     x Dataset Cleaning 
-    - Automatic outlier detection
-    ? might want to explore different interpolation method
     x XGBoost implementation
-    - remove timestamp that have continuos zero volume
-    - add spatial feature, turning traffic and direction
+    x Automatic outlier detection
+    x remove timestamp that have continuos zero volume
+    x add spatial feature, turning traffic and direction (some detector do not have png for references)
     
 % XAI Implementation (SHAP)
     x SHAP Implementation
@@ -25,6 +24,4 @@
 % Traffic Validation
     - Study SUMO
     - Create the case study map, with sensor
-
-    
     
