@@ -20,8 +20,64 @@
     
 % XAI Implementation (SHAP)
     x SHAP Implementation
+    x analyze which intersection needed to be improve, based on some KPI index, and then focus on the small road network. 
+    x the road network is too complicate to study and analuyze 
 
 % Traffic Validation
     - Study SUMO
     - Create the case study map, with sensor
     
+
+
+# 🚦 Workflow Pipeline
+
+## 1. Traffic Prediction
+- **Input**: Lane-level historical traffic data.  
+- **Model**: XGBoost / LSTM / LightGBM.  
+- **Output**: Predicted lane volumes per time step.  
+
+---
+
+## 2. Explainable AI (XAI)
+- **Method**: Use SHAP (or similar) to explain which features drive predictions (e.g., hour of day, lane type, weather).  
+- **Insights**:  
+  - *Feature-level*: Why certain lanes congest at certain times.  
+  - *Supports hotspot prioritization*:  
+    - Example: “XAI shows hour of day + lane type strongly influence congestion at Site 2134.”  
+
+---
+
+## 3. Hotspot Detection (NEW)
+- **Process**: Compute lane utilization & congestion flags.  
+- **Combine with XAI insights**:  
+  - SHAP says *hour of day* is critical → check peak-hour hotspots.  
+  - SHAP says *lane type (bus vs general)* matters → focus on lanes with high imbalance.  
+- **Output**: Prioritized sub-network for simulation.  
+
+---
+
+## 4. Simulation (Focused Area Only)
+- **Input**: Convert hotspot volumes → SUMO routes/flows.  
+- **Process**: Run SUMO for the sub-network only.  
+- **KPIs Extracted**:  
+  - Travel time  
+  - Queue length  
+  - Emissions  
+  - Throughput  
+
+---
+
+## 5. KPI Post-Processing
+- **Summarize**: Simulation results into policy-ready metrics.  
+- **Scenario Comparison**:  
+  - Base vs Bus Lane vs Ramp Metering vs Dynamic Signage.  
+
+---
+
+## 6. LLM Policy Generation
+- **Input**: KPI summaries + hotspot context + XAI insights.  
+- **Output**: Policy recommendations:  
+  - Adaptive bus priority  
+  - Lane reallocation  
+  - Ramp metering  
+  - Dynamic signage  
