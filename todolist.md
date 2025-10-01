@@ -8,7 +8,7 @@
     * [X] ~~*XGBoost implementation*~~ [2025-09-24]
     * [X] ~~*Automatic outlier detection*~~ [2025-09-24]
     * [X] ~~*remove timestamp that have continuos zero volume*~~ [2025-09-24]
-    * [X] ~~*add spatial feature, turning traffic and direction (some detector do not have png for references)*~~ [2025-09-24]
+    * [X] ~~*add spatial feature, turning traffic and direction*~~ [2025-09-24]
     
 # XAI Implementation (SHAP)
     * [X] ~~*SHAP Implementation*~~ [2025-09-24]
@@ -25,8 +25,9 @@
     * [X] ~~*Select top 3 most congestion site for LLM input*~~ [2025-09-29]
 
 # Simulation (Optional)
-    * [ ] Export hotspot to SUMO
-    * [ ] Run basic simulation
+    * [X] ~~*Export hotspot to SUMO*~~ [2025-09-30]
+    * [ ] Clean hotspot (1 done 2 to go)
+    * [X] ~~*Run basic simulation*~~ [2025-10-01]
     * [ ] Extract simulation KPI (Queue Length, Travel Time)
 
 # LLM Policy Creation
