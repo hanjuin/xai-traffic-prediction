@@ -1,0 +1,31 @@
+Project: Auckland CBD Traffic Simulation
+
+This simulation models the Auckland CBD morning peak-hour traffic conditions (7–9 AM) to identify congestion hotspots and generate data-driven policy recommendations.
+
+Objectives:
+- Reduce congestion
+- Improve average vehicle speed and flow.
+- Support eco-friendly and low-cost policy decisions.
+
+Simulation setup:
+- Time range: 0–3600 seconds (1 hour)
+- Network: Auckland CBD arterial network
+- Detector data collected for flow, speed, and occupancy
+- Trip generation based on average morning demand
+
+Constraints:
+- Budget limits prevent large-scale road widening.
+- Focus on signal optimization, dynamic lane use, and sustainable policies.
+
+Existing Auckland transport policies:
+- Ramp metering on motorway on-ramps
+- Dynamic lane control on Auckland Harbour Bridge
+- Bus lanes on major CBD corridors
+- Public transport promotion through AT Metro
+- Traffic signal coordination
+
+Expected output:
+- Identify key congestion sites.
+- Suggest short-, medium-, and long-term policy options.
+- Justify each recommendation with detector or simulation data.
+- Present results in a structured table format.

@@ -28,15 +28,43 @@
     * [X] ~~*Export hotspot to SUMO*~~ [2025-09-30]
     * [ ] Clean hotspot (1 done 2 to go)
     * [X] ~~*Run basic simulation*~~ [2025-10-01]
-    * [ ] Extract simulation KPI (Queue Length, Travel Time)
+    * [X] ~~*Extract simulation KPI (Queue Length, Travel Time)*~~ [2025-10-07]
+    * [ ] Use dataset for traffic generation     
 
 # LLM Policy Creation
-    * [ ] Design prompt template
+    * [X] ~~*Design prompt template*~~ [2025-10-07]
           "Given KPI = [x], context =  [y], SHAP insight = [z], recommend traffic policy
-    * [ ] OUTPUT: Policy Recommendations
+    * [X] ~~*OUTPUT: Policy Recommendations*~~ [2025-10-07]
+    * [ ] include XAI result
 
 # Traffic Validation
     * [ ] Replicate the top 3 most congestion sites, with sensor
-    * [ ] Implement policy recommendations 
+    * [X] ~~*Implement policy recommendations*~~ [2025-10-07] 
     * [ ] Define Validation Metric 
     * [ ] Validate the policy
+
+* [ ] organize source code
+    * [X] ~~*traffic simulation result - date indexed*~~ [2025-10-09]
+    * [X] ~~*LLM result - date indexed*~~ [2025-10-09]
+    * [ ] road network - date indexed
+* [ ] create traffic based on most congestion day
+* [ ] edit LLM prompt - include XAI results
+* [ ] run simulation
+
+
+
+* [ ] strutural abstract (punchy)
+
+* [ ] why is the problem important
+* [ ] what the context
+* [ ] how - an overview
+* [ ] how much - what are our contribution worth (novelty, contribution)
+* [ ] https://zenodo.org
+
+
+
+4606
+3869
+
+8164
+9168

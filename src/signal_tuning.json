@@ -1,0 +1,28 @@
+{
+  "defaults": {
+    "main_share": 0.6,
+    "green": {
+      "main": {"min": 10, "max": 70, "dur": 35},
+      "side": {"min": 7,  "max": 40, "dur": 25}
+    },
+    "yellow": 3
+  },
+  "per_tl": {
+    "TL_25772784": {
+      "main_share": 0.70,
+      "green": {
+        "main": {"min": 12, "max": 80, "dur": 40},
+        "side": {"min": 7,  "max": 35, "dur": 20}
+      },
+      "yellow": 3
+    },
+    "TL_25772779": {
+      "main_share": 0.65,
+      "green": {
+        "main": {"min": 10, "max": 75, "dur": 36},
+        "side": {"min": 7,  "max": 35, "dur": 22}
+      },
+      "yellow": 3
+    }
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "reasoning": [
+    {
+      "edge_or_junction_id": "25772784",
+      "issue_detected": "Unsignalized multi-approach trunk junction. Severe queuing on The Strand southbound approach.",
+      "proposed_policy": "Convert to actuated traffic signal with protected phases for The Strand through and Gladstone movements.",
+      "justification": "Loop loop_-13718894_0 shows avg_speed 1.22 m/s and occupancy 88.34% (High), indicating queue spillback into this node. As a priority junction, conflicting major flows from -13718894 and 606859931 block minor approach 7637453. Signalization with split favoring The Strand will reduce blocking and clear Gladstone platoons."
+    },
+    {
+      "edge_or_junction_id": "25772779",
+      "issue_detected": "Unsignalized merge/cross of The Strand and Gladstone with heavy inbound from east.",
+      "proposed_policy": "Install actuated traffic signal; two-phase plan prioritizing The Strand, with a second phase to serve Gladstone and right-turns.",
+      "justification": "Detector loop_624523286_1 shows occupancy 80.76% (High), suggesting the eastbound The Strand approach is saturated. A TL will meter conflicting streams and prevent starvation of side movements."
+    },
+    {
+      "edge_or_junction_id": "25773189",
+      "issue_detected": "T‑junction (Gladstone x Balfour) operating under priority with extreme blockage on Balfour approach.",
+      "proposed_policy": "Convert to actuated three-phase traffic signal with side-street priority window and protected major-to-side turns.",
+      "justification": "Balfour approach loop_-7637536#1_0 has avg_speed 0.18 m/s and occupancy 95.99% (High), while adjacent Gladstone segments are congested (loop_-1088700963_0 speed 8.17 m/s, loop_1286470869#0_0 speed 3.93 m/s). A short protected side-street phase will clear queues and reduce unsafe gap acceptance."
+    },
+    {
+      "edge_or_junction_id": "GS_cluster_1345480308_25773538",
+      "issue_detected": "Existing TL near Quay St/Tāmaki Drive under-allocates green to the most saturated approach.",
+      "proposed_policy": "Re-time actuated phases to extend green for Quay Street inbound movements and increase min/max flexibility.",
+      "justification": "On approach 624515490#0, lanes show High congestion with extreme occupancy (lane 2 at 91.22%, lanes 0/3 at 15–22%). Extending the green (and minDur/maxDur) on the phases serving 624515490#0→15089884 should increase throughput and reduce queues."
+    },
+    {
+      "edge_or_junction_id": "-7637536#1",
+      "issue_detected": "Residential rat-run feeding a saturated arterial T-junction.",
+      "proposed_policy": "Traffic calming via speed reduction to 30 km/h (8.33 m/s) on Balfour Rd approach.",
+      "justification": "With occupancy ~96% and near-zero speeds, cutting the approach speed aligns with urban policy, discourages cut-through traffic, and smooths arrivals to the new actuated TL at 25773189, improving safety and reducing spillback."
+    },
+    {
+      "edge_or_junction_id": "Network-wide (Auckland CBD morning peak)",
+      "issue_detected": "Very low average network speed (1.54 m/s) and long travel times indicate control/signal inefficiencies.",
+      "proposed_policy": "Short-term: add signals and re-time; Medium-term: coordinated progression along The Strand; Long-term: bus priority and adaptive control.",
+      "justification": "Detectors identify clear bottlenecks at unsignalized trunks and an under-timed TL. Proposed changes target these chokepoints within budget (no widening) and leverage existing AT policies (signal coordination, PT priority)."
+    }
+  ],
+  "actions": [
+    {
+      "type": "update_attribute",
+      "target": "junction",
+      "id": "25772784",
+      "attribute": "type",
+      "new_value": "traffic_light"
+    },
+    {
+      "type": "create_element",
+      "target": "tlLogic",
+      "id": "25772784",
+      "xml_snippet": "<tlLogic id=\"25772784\" type=\"actuated\" programID=\"0\" offset=\"0\">\n  <phase duration=\"50\" state=\"rrGGGG\" minDur=\"20\" maxDur=\"60\"/>\n  <phase duration=\"4\" state=\"rryyyy\"/>\n  <phase duration=\"25\" state=\"GGrrrr\" minDur=\"10\" maxDur=\"40\"/>\n  <phase duration=\"4\" state=\"yyrrrr\"/>\n</tlLogic>"
+    },
+    {
+      "type": "update_attribute",
+      "target": "junction",
+      "id": "25772779",
+      "attribute": "type",
+      "new_value": "traffic_light"
+    },
+    {
+      "type": "create_element",
+      "target": "tlLogic",
+      "id": "25772779",
+      "xml_snippet": "<tlLogic id=\"25772779\" type=\"actuated\" programID=\"0\" offset=\"0\">\n  <phase duration=\"50\" state=\"rGGGGGr\" minDur=\"20\" maxDur=\"60\"/>\n  <phase duration=\"4\" state=\"ryyyyyr\"/>\n  <phase duration=\"25\" state=\"GrrrrrG\" minDur=\"10\" maxDur=\"40\"/>\n  <phase duration=\"4\" state=\"yrrrrry\"/>\n</tlLogic>"
+    },
+    {
+      "type": "update_attribute",
+      "target": "junction",
+      "id": "25773189",
+      "attribute": "type",
+      "new_value": "traffic_light"
+    },
+    {
+      "type": "create_element",
+      "target": "tlLogic",
+      "id": "25773189",
+      "xml_snippet": "<tlLogic id=\"25773189\" type=\"actuated\" programID=\"0\" offset=\"0\">\n  <phase duration=\"40\" state=\"rrGGrr\" minDur=\"20\" maxDur=\"60\"/>\n  <phase duration=\"4\" state=\"rryyrr\"/>\n  <phase duration=\"20\" state=\"GGrrrr\" minDur=\"10\" maxDur=\"40\"/>\n  <phase duration=\"4\" state=\"yyrrrr\"/>\n  <phase duration=\"15\" state=\"rrGrrG\" minDur=\"5\" maxDur=\"25\"/>\n  <phase duration=\"4\" state=\"rryrry\"/>\n</tlLogic>"
+    },
+    {
+      "type": "create_element",
+      "target": "tlLogic",
+      "id": "GS_cluster_1345480308_25773538",
+      "xml_snippet": "<tlLogic id=\"GS_cluster_1345480308_25773538\" type=\"actuated\" programID=\"0\" offset=\"0\">\n  <phase duration=\"30\" state=\"GGGGGgggrr\" minDur=\"10\" maxDur=\"70\"/>\n  <phase duration=\"3\" state=\"yyyGGgggrr\"/>\n  <phase duration=\"45\" state=\"rrrGGGGGrr\" minDur=\"10\" maxDur=\"70\"/>\n  <phase duration=\"3\" state=\"rrryyyyGrr\"/>\n  <phase duration=\"45\" state=\"rrrrrrrGGG\" minDur=\"10\" maxDur=\"70\"/>\n  <phase duration=\"3\" state=\"rrrrrrrgyy\"/>\n</tlLogic>"
+    },
+    {
+      "type": "update_attribute",
+      "target": "edge",
+      "id": "-7637536#1",
+      "attribute": "lane[@id='-7637536#1_0']@speed",
+      "new_value": "8.33"
+    }
+  ],
+  "modified_snippets": [
+    "<junction id=\"25772784\" type=\"traffic_light\" x=\"172.38\" y=\"355.22\" incLanes=\"7637453_0 -13718894_0 -13718894_1 606859931_0 606859931_1\" intLanes=\":25772784_0_0 :25772784_1_0 :25772784_2_0 :25772784_2_1 :25772784_4_0 :25772784_4_1\" shape=\"174.79,344.37 180.49,347.35 179.22,349.88 178.86,351.18 178.70,352.49 178.72,353.82 178.93,355.17 166.44,357.96 165.89,355.65 165.39,353.96 164.83,352.61 164.09,351.34 163.08,349.87 161.68,347.94 170.73,344.25 172.02,345.78 172.69,345.99 173.37,345.82 174.07,345.28\">\n  <request index=\"0\" response=\"111100\" foes=\"111100\" cont=\"0\"/>\n  <request index=\"1\" response=\"000000\" foes=\"000000\" cont=\"0\"/>\n  <request index=\"2\" response=\"001000\" foes=\"001001\" cont=\"0\"/>\n  <request index=\"3\" response=\"000000\" foes=\"000101\" cont=\"0\"/>\n  <request index=\"4\" response=\"000000\" foes=\"000001\" cont=\"0\"/>\n  <request index=\"5\" response=\"000000\" foes=\"000001\" cont=\"0\"/>\n</junction>",
+    "<junction id=\"25772779\" type=\"traffic_light\" x=\"145.43\" y=\"316.15\" incLanes=\"-7637457_0 -606859931_0 624523286_0 624523286_1\" intLanes=\":25772779_0_0 :25772779_1_0 :25772779_2_0 :25772779_2_1 :25772779_2_2 :25772779_2_3 :25772779_7_0\" shape=\"160.29,317.64 158.28,323.72 156.45,323.43 156.06,323.63 156.00,324.07 156.29,324.75 156.93,325.66 149.37,331.58 137.31,316.00 144.98,310.23 147.33,312.97 149.41,314.62 151.50,315.55 153.84,316.13 156.69,316.70\">\n  <request index=\"0\" response=\"0000010\" foes=\"0000010\" cont=\"0\"/>\n  <request index=\"1\" response=\"0000000\" foes=\"1000001\" cont=\"0\"/>\n  <request index=\"2\" response=\"0010000\" foes=\"0010000\" cont=\"0\"/>\n  <request index=\"3\" response=\"0110000\" foes=\"0110000\" cont=\"0\"/>\n  <request index=\"4\" response=\"0000000\" foes=\"0001100\" cont=\"0\"/>\n  <request index=\"5\" response=\"0000000\" foes=\"0001000\" cont=\"0\"/>\n  <request index=\"6\" response=\"0000010\" foes=\"0000010\" cont=\"1\"/>\n</junction>",
+    "<junction id=\"25773189\" type=\"traffic_light\" x=\"277.68\" y=\"331.16\" incLanes=\"-7637536#1_0 -1088700963_0 1286470869#0_0\" intLanes=\":25773189_0_0 :25773189_1_0 :25773189_2_0 :25773189_3_0 :25773189_4_0 :25773189_6_0\" shape=\"274.71,323.72 281.11,323.92 281.48,326.33 282.01,327.20 282.77,327.85 283.75,328.28 284.97,328.49 284.50,334.87 270.12,333.80 270.60,327.42 272.83,327.14 273.62,326.64 274.20,325.91 274.57,324.93\">\n  <request index=\"0\" response=\"001000\" foes=\"001000\" cont=\"0\"/>\n  <request index=\"1\" response=\"111000\" foes=\"111000\" cont=\"0\"/>\n  <request index=\"2\" response=\"000000\" foes=\"100000\" cont=\"0\"/>\n  <request index=\"3\" response=\"000000\" foes=\"100011\" cont=\"0\"/>\n  <request index=\"4\" response=\"000000\" foes=\"000010\" cont=\"0\"/>\n  <request index=\"5\" response=\"001100\" foes=\"001110\" cont=\"1\"/>\n</junction>",
+    "<tlLogic id=\"25772784\" type=\"actuated\" programID=\"0\" offset=\"0\">\n  <phase duration=\"50\" state=\"rrGGGG\" minDur=\"20\" maxDur=\"60\"/>\n  <phase duration=\"4\" state=\"rryyyy\"/>\n  <phase duration=\"25\" state=\"GGrrrr\" minDur=\"10\" maxDur=\"40\"/>\n  <phase duration=\"4\" state=\"yyrrrr\"/>\n</tlLogic>",
+    "<tlLogic id=\"25772779\" type=\"actuated\" programID=\"0\" offset=\"0\">\n  <phase duration=\"50\" state=\"rGGGGGr\" minDur=\"20\" maxDur=\"60\"/>\n  <phase duration=\"4\" state=\"ryyyyyr\"/>\n  <phase duration=\"25\" state=\"GrrrrrG\" minDur=\"10\" maxDur=\"40\"/>\n  <phase duration=\"4\" state=\"yrrrrry\"/>\n</tlLogic>",
+    "<tlLogic id=\"25773189\" type=\"actuated\" programID=\"0\" offset=\"0\">\n  <phase duration=\"40\" state=\"rrGGrr\" minDur=\"20\" maxDur=\"60\"/>\n  <phase duration=\"4\" state=\"rryyrr\"/>\n  <phase duration=\"20\" state=\"GGrrrr\" minDur=\"10\" maxDur=\"40\"/>\n  <phase duration=\"4\" state=\"yyrrrr\"/>\n  <phase duration=\"15\" state=\"rrGrrG\" minDur=\"5\" maxDur=\"25\"/>\n  <phase duration=\"4\" state=\"rryrry\"/>\n</tlLogic>",
+    "<tlLogic id=\"GS_cluster_1345480308_25773538\" type=\"actuated\" programID=\"0\" offset=\"0\">\n  <phase duration=\"30\" state=\"GGGGGgggrr\" minDur=\"10\" maxDur=\"70\"/>\n  <phase duration=\"3\" state=\"yyyGGgggrr\"/>\n  <phase duration=\"45\" state=\"rrrGGGGGrr\" minDur=\"10\" maxDur=\"70\"/>\n  <phase duration=\"3\" state=\"rrryyyyGrr\"/>\n  <phase duration=\"45\" state=\"rrrrrrrGGG\" minDur=\"10\" maxDur=\"70\"/>\n  <phase duration=\"3\" state=\"rrrrrrrgyy\"/>\n</tlLogic>",
+    "<edge id=\"-7637536#1\" from=\"25773231\" to=\"25773189\" name=\"Balfour Road\" priority=\"3\" type=\"highway.residential\" shape=\"279.70,269.78 294.55,5.29 285.30,54.45 280.90,229.72 279.42,276.20 278.00,320.92 277.89,324.56 277.68,331.16\">\n    <lane id=\"-7637536#1_0\" index=\"0\" disallow=\"tram rail_urban rail rail_electric rail_fast ship container cable_car subway aircraft wheelchair scooter drone\" speed=\"8.33\" length=\"54.09\" shape=\"278.10,269.71 277.82,276.14 276.40,320.87 276.31,323.77\">\n        <param key=\"origId\" value=\"7637536\"/>\n    </lane>\n</edge>"
+  ]
+}

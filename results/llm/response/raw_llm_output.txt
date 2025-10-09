@@ -1,0 +1,35 @@
+
+{
+  "reasoning": [
+    {
+      "edge_or_junction_id": "25772784",
+      "issue_detected": "High congestion detected at junction 25772784.",
+      "proposed_policy": "Install traffic lights.",
+      "justification": "The detector data shows high congestion levels with low average speeds and high occupancy, indicating a need for better traffic management at this junction."
+    },
+    {
+      "edge_or_junction_id": "25772779",
+      "issue_detected": "High congestion detected at junction 25772779.",
+      "proposed_policy": "Install traffic lights.",
+      "justification": "The junction is a convergence point for multiple congested edges, and the existing priority control is insufficient to manage the traffic flow effectively."
+    }
+  ],
+  "actions": [
+    {
+      "type": "create_element",
+      "target": "tlLogic",
+      "id": "TL_25772784",
+      "xml_snippet": "<tlLogic id=\"TL_25772784\" type=\"actuated\" programID=\"0\" offset=\"0\">\n  <phase duration=\"45\" state=\"GGgrrr\"/>\n  <phase duration=\"5\" state=\"yygrrr\"/>\n  <phase duration=\"45\" state=\"rrrGGg\"/>\n  <phase duration=\"5\" state=\"rrryyy\"/>\n</tlLogic>"
+    },
+    {
+      "type": "create_element",
+      "target": "tlLogic",
+      "id": "TL_25772779",
+      "xml_snippet": "<tlLogic id=\"TL_25772779\" type=\"actuated\" programID=\"0\" offset=\"0\">\n  <phase duration=\"45\" state=\"GGgrrr\"/>\n  <phase duration=\"5\" state=\"yygrrr\"/>\n  <phase duration=\"45\" state=\"rrrGGg\"/>\n  <phase duration=\"5\" state=\"rrryyy\"/>\n</tlLogic>"
+    }
+  ],
+  "modified_snippets": [
+    "<tlLogic id=\"TL_25772784\" type=\"actuated\" programID=\"0\" offset=\"0\">\n  <phase duration=\"45\" state=\"GGgrrr\"/>\n  <phase duration=\"5\" state=\"yygrrr\"/>\n  <phase duration=\"45\" state=\"rrrGGg\"/>\n  <phase duration=\"5\" state=\"rrryyy\"/>\n</tlLogic>",
+    "<tlLogic id=\"TL_25772779\" type=\"actuated\" programID=\"0\" offset=\"0\">\n  <phase duration=\"45\" state=\"GGgrrr\"/>\n  <phase duration=\"5\" state=\"yygrrr\"/>\n  <phase duration=\"45\" state=\"rrrGGg\"/>\n  <phase duration=\"5\" state=\"rrryyy\"/>\n</tlLogic>"
+  ]
+}
