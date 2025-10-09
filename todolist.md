@@ -43,10 +43,10 @@
     * [ ] Define Validation Metric 
     * [ ] Validate the policy
 
-* [ ] organize source code
+* [X] ~~*organize source code*~~ [2025-10-09]
     * [X] ~~*traffic simulation result - date indexed*~~ [2025-10-09]
     * [X] ~~*LLM result - date indexed*~~ [2025-10-09]
-    * [ ] road network - date indexed
+    * [X] ~~*road network - date indexed*~~ [2025-10-09]
 * [ ] create traffic based on most congestion day
 * [ ] edit LLM prompt - include XAI results
 * [ ] run simulation
