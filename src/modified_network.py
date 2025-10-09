@@ -29,14 +29,14 @@ def safe_load_llm_json(path_or_str):
             pass
     with open("invalid_llm_output.txt", "w", encoding="utf-8") as f:
         f.write(content)
-    print("⚠️ Could not parse LLM JSON; raw content saved to invalid_llm_output.txt")
+    print("Could not parse LLM JSON; raw content saved to invalid_llm_output.txt")
     return None
 
 
 def write_xml(tree, path):
     os.makedirs(os.path.dirname(path), exist_ok=True)
     tree.write(path, encoding="utf-8", xml_declaration=True)
-    print(f"💾 Saved: {path}")
+    print(f"Saved: {path}")
 
 
 def rebuild_with_netconvert(input_net, output_net, netconvert_path="netconvert"):
@@ -46,11 +46,11 @@ def rebuild_with_netconvert(input_net, output_net, netconvert_path="netconvert")
             [netconvert_path, "-s", input_net, "-o", output_net],
             check=True, capture_output=True, text=True
         )
-        print(f"✅ Rebuilt with netconvert → {output_net}")
+        print(f"Rebuilt with netconvert → {output_net}")
         return True
     except subprocess.CalledProcessError as e:
-        print("❌ netconvert failed:\n", e.stderr)
-        print("⚠️ Ensure netconvert is in PATH or pass full path with netconvert_path=...")
+        print("netconvert failed:\n", e.stderr)
+        print("Ensure netconvert is in PATH or pass full path with netconvert_path=...")
         return False
 
 
@@ -98,7 +98,7 @@ def load_tuning_config(path=None):
     if not path:
         return DEFAULT_TUNING
     if not os.path.exists(path):
-        print(f"ℹ️ Tuning file not found, using defaults: {path}")
+        print(f"ℹTuning file not found, using defaults: {path}")
         return DEFAULT_TUNING
     try:
         with open(path, "r", encoding="utf-8") as f:
@@ -110,7 +110,7 @@ def load_tuning_config(path=None):
         print(f"🧩 Loaded tuning config: {path}")
         return merged
     except Exception as e:
-        print(f"⚠️ Failed to load tuning config, using defaults. ({e})")
+        print(f"Failed to load tuning config, using defaults. ({e})")
         return DEFAULT_TUNING
 
 
@@ -173,13 +173,13 @@ def merge_tlLogic_snippets(original_net, llm_json, merged_out_path):
     Merge new/updated <tlLogic> elements from LLM JSON and link junctions (type + tl attr).
     Returns parsed ElementTree for further processing.
     """
-    print("🚦 Merging tlLogic snippets…")
+    print("Merging tlLogic snippets…")
     tree = ET.parse(original_net)
     root = tree.getroot()
 
     data = safe_load_llm_json(llm_json) if isinstance(llm_json, str) else llm_json
     if data is None:
-        print("❌ No valid LLM JSON to merge.")
+        print("No valid LLM JSON to merge.")
         write_xml(tree, merged_out_path)
         return tree
 
@@ -196,12 +196,12 @@ def merge_tlLogic_snippets(original_net, llm_json, merged_out_path):
             existing = root.find(f".//tlLogic[@id='{tl_id}']")
             if existing is not None:
                 root.remove(existing)
-                print(f"🔁 Replaced tlLogic {tl_id}")
+                print(f"Replaced tlLogic {tl_id}")
             else:
-                print(f"➕ Added tlLogic {tl_id}")
+                print(f"Added tlLogic {tl_id}")
             root.append(elem)
         except Exception as e:
-            print(f"⚠️ Skipped non-XML or invalid snippet: {str(e)}")
+            print(f"Skipped non-XML or invalid snippet: {str(e)}")
 
     # 2) Set junction type + tl attr from actions
     for act in actions:
@@ -218,9 +218,9 @@ def merge_tlLogic_snippets(original_net, llm_json, merged_out_path):
             if j is not None:
                 j.set("type", "traffic_light")
                 j.set("tl", tl_id)
-                print(f"✅ Linked junction {j.get('id')} → {tl_id}")
+                print(f"Linked junction {j.get('id')} → {tl_id}")
             else:
-                print(f"⚠️ Could not find junction for tlLogic {tl_id}")
+                print(f"Could not find junction for tlLogic {tl_id}")
 
     write_xml(tree, merged_out_path)
     return tree
@@ -233,7 +233,7 @@ def link_connections_to_tllogic(tree, linked_out_path):
     - Remove uncontrolled="1"
     - Ensure linkIndex is compact 0..n-1
     """
-    print("🔗 Linking connections to traffic lights…")
+    print("Linking connections to traffic lights…")
     root = tree.getroot()
 
     # Build map of junction_id -> tl_id
@@ -260,7 +260,7 @@ def link_connections_to_tllogic(tree, linked_out_path):
 
     tl_to_conns = count_and_assign_link_indices(root)
     write_xml(tree, linked_out_path)
-    print(f"✅ Linked {total_linked} connections across {len(tl_to_conns)} signals")
+    print(f"Linked {total_linked} connections across {len(tl_to_conns)} signals")
     return tl_to_conns
 
 
@@ -269,7 +269,7 @@ def ensure_tllogic_programs(tree, tl_to_conns, ensured_out_path, tuning_cfg):
     Ensure each tlLogic exists and has actuated phases sized to number of controlled links,
     using per-junction tuning config when available.
     """
-    print("🧭 Ensuring tlLogic programs (actuated, tuned)…")
+    print("Ensuring tlLogic programs (actuated, tuned)…")
     root = tree.getroot()
     existing = {tl.get("id"): tl for tl in root.findall("tlLogic")}
     changed = 0
@@ -294,7 +294,7 @@ def ensure_tllogic_programs(tree, tl_to_conns, ensured_out_path, tuning_cfg):
             root.append(tl)
             existing[tl_id] = tl
             regen = True
-            print(f"➕ Created tlLogic {tl_id} (no existing program)")
+            print(f"Created tlLogic {tl_id} (no existing program)")
 
         # ensure actuated
         if tl.get("type") != "actuated":
@@ -324,10 +324,10 @@ def ensure_tllogic_programs(tree, tl_to_conns, ensured_out_path, tuning_cfg):
                     state=state
                 )
             changed += 1
-            print(f"🔧 Regenerated actuated (tuned) phases for {tl_id} with {n_links} links")
+            print(f"Regenerated actuated (tuned) phases for {tl_id} with {n_links} links")
 
     write_xml(tree, ensured_out_path)
-    print(f"✅ tlLogic check complete (updated {changed} programs)")
+    print(f"tlLogic check complete (updated {changed} programs)")
     return tree
 
 
@@ -371,10 +371,10 @@ def apply_policy_updates(
     # Step 4
     ok = rebuild_with_netconvert(ensured, rebuilt, netconvert_path=netconvert_path)
     if ok:
-        print("\n🎉 Done. Open this file in NetEdit / SUMO-GUI:")
+        print("\nDone. Open this file in NetEdit / SUMO-GUI:")
         print(f"   {rebuilt}")
     else:
-        print("\n⚠️ Rebuild failed. You can still inspect:")
+        print("\nRebuild failed. You can still inspect:")
         print(f"   {merged}\n   {linked}\n   {ensured}")
 
 

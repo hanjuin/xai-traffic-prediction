@@ -51,8 +51,8 @@ new_cfg_path = results_dir / "osm_config.sumocfg"
 new_cfg_path.write_text(cfg_content, encoding="utf-8")
 
 # === 5. Run SUMO ===
-print(f"🚗 Running SUMO... Results will be saved in: {results_dir}")
+print(f"Running SUMO... Results will be saved in: {results_dir}")
 subprocess.run(["sumo-gui", "-c", str(new_cfg_path)], check=True)
 # subprocess.run(["sumo", "-c", str(new_cfg_path)], check=True)
 
-print("✅ Simulation finished!")
+print("Simulation finished!")

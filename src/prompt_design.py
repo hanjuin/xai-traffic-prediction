@@ -74,11 +74,11 @@ def parse_network(file):
         with open(json_file, "w", encoding="utf-8") as f:
             json.dump(network_data, f, indent=2)
 
-        print(f"✅ Network summary saved to: {json_file}")
+        print(f"Network summary saved to: {json_file}")
         return network_data
 
     except Exception as e:
-        print(f"❌ Error reading network: {e}")
+        print(f"Error reading network: {e}")
         return {}
 
 # --- 2. Parse detector output ---
@@ -193,4 +193,4 @@ if __name__ == "__main__":
     with open(OUTPUT_PROMPT, "w", encoding="utf-8") as f:
         f.write(prompt)
 
-    print(f"✅ Policy prompt generated and saved to: {OUTPUT_PROMPT}")
+    print(f"Policy prompt generated and saved to: {OUTPUT_PROMPT}")
