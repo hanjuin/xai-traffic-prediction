@@ -26,30 +26,34 @@
 
 # Simulation (Optional)
     * [X] ~~*Export hotspot to SUMO*~~ [2025-09-30]
-    * [ ] Clean hotspot (1 done 2 to go)
     * [X] ~~*Run basic simulation*~~ [2025-10-01]
     * [X] ~~*Extract simulation KPI (Queue Length, Travel Time)*~~ [2025-10-07]
-    * [ ] Use dataset for traffic generation     
 
 # LLM Policy Creation
     * [X] ~~*Design prompt template*~~ [2025-10-07]
           "Given KPI = [x], context =  [y], SHAP insight = [z], recommend traffic policy
     * [X] ~~*OUTPUT: Policy Recommendations*~~ [2025-10-07]
-    * [ ] include XAI result
+    * [X] ~~*include XAI result*~~ [2025-10-13]
 
 # Traffic Validation
-    * [ ] Replicate the top 3 most congestion sites, with sensor
     * [X] ~~*Implement policy recommendations*~~ [2025-10-07] 
-    * [ ] Define Validation Metric 
-    * [ ] Validate the policy
+    * [X] ~~*Define Validation Metric*~~ [2025-10-10] 
 
 * [X] ~~*organize source code*~~ [2025-10-09]
     * [X] ~~*traffic simulation result - date indexed*~~ [2025-10-09]
     * [X] ~~*LLM result - date indexed*~~ [2025-10-09]
     * [X] ~~*road network - date indexed*~~ [2025-10-09]
-* [ ] create traffic based on most congestion day
-* [ ] edit LLM prompt - include XAI results
-* [ ] run simulation
+* [X] ~~*create traffic based on most congestion day*~~ [2025-10-10] 
+        Average traffic for site 2906: 5692.525229357798
+        Most traffic day for site 2906: 2024-10-04 with 15781 vehicles
+* [X] ~~*edit LLM prompt - include XAI results*~~ [2025-10-10] 
+* [X] ~~*run simulation*~~ [2025-10-10]
+
+* [X] ~~*identified why XAI result make the LLM worse*~~ [2025-10-13]
+* [X] ~~*do another LLM focus on traffic timing only (green wave method)*~~ [2025-10-11]
+
+
+
 
 
 
