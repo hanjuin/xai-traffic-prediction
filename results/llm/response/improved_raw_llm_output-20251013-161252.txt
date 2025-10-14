@@ -1,0 +1,119 @@
+{
+  "reasoning": [
+    {
+      "edge_or_junction_id": "25772784",
+      "issue_detected": "Downstream bottleneck starving the Gladstone Rd eastbound approach (edge 7637453). Only 8 s of green per 84 s cycle for movement 7637453 -> 867177333. This causes queues to back-propagate to TL 25772782 and even to the upstream priority node 25773189.",
+      "proposed_policy": "Increase green time for the 7637453 straight-through movement at TL 25772784 from 8 s to 16 s. Compensate by slightly reducing the through greens on The Strand (both directions) and trimming the dedicated left-turn.",
+      "justification": "High occupancies upstream: loop_-1286470869#1_0 (82.2% occ, low speed 5.47 m/s) feeds into 7637453, and loop_-1088700963_0 shows low speeds (5.60 m/s). The extremely low speeds and high occupancies indicate the downstream TL is gating flow. Doubling the EB green to 16 s while keeping total cycle at 84 s should reduce spillback without unduly penalizing The Strand, whose heavy approach (-13718894_0) still retains sizable green."
+    },
+    {
+      "edge_or_junction_id": "25772782",
+      "issue_detected": "Unbalanced split against eastbound progression and no temporal coordination with downstream TL 25772784. This contributes to long queues on -1286470869#1 (Gladstone WB→EB).",
+      "proposed_policy": "Rebalance splits to 30/30 (from 35/25) between the two main phases and set an offset to release EB platoons to arrive during the new 25772784 EB green window. Set offset=23 s.",
+      "justification": "loop_-1286470869#1_0 has 82.2% occupancy (congested). With 25772784 now providing a 16 s window starting ~65 s into its cycle, an offset of ~23 s at 25772782 positions the EB release (~t=61 s; travel ~4 s at ~40 km/h over ≈45 m) to hit the downstream green early, reducing stops/queuing and improving corridor progression."
+    },
+    {
+      "edge_or_junction_id": "25772779",
+      "issue_detected": "Upstream queueing on The Strand toward the Gladstone corridor; loop_624523286_1 shows very high occupancy (88.0%) and low speeds.",
+      "proposed_policy": "Shift green time from the minor to the main arterial phase: increase the first phase green from 35 s to 40 s and reduce the opposing phase from 25 s to 20 s; keep cycle at 66 s. Slightly adjust offset to improve arrival at 25772782.",
+      "justification": "Data shows persistent upstream demand on The Strand toward the Gladstone corridor. Providing 5 additional seconds per cycle for the main phase will better feed 25772782 and, with the 25772782 offset, improve the chance of catching the downstream green at 25772784."
+    },
+    {
+      "edge_or_junction_id": "TL_cluster_1345480308_25773538",
+      "issue_detected": "Severe queuing on Quay St westbound approaching the cluster; loop_624515490#0_2 has near-zero speed and 96.3% occupancy.",
+      "proposed_policy": "Increase the primary phase (serving Quay→Tāmaki/The Strand group) from 35 s to 45 s and reduce the opposing phase from 25 s to 21 s (keep 3 s yellows). Cycle time becomes 72 s, still within safe bounds.",
+      "justification": "The Quay St inbound approach is saturated. Providing +10 s green should substantially reduce residual queues while the opposing movements (with lower detector stress) can sustain a modest reduction (-4 s) without destabilizing the node. Cycle remains within 60–120 s."
+    }
+  ],
+  "actions": [
+    {
+      "type": "update_attribute",
+      "target": "tlLogic",
+      "id": "25772784",
+      "attribute": "offset|phase.duration",
+      "new_value": "offset=0; phase[0]=24; phase[1]=4; phase[2]=22; phase[3]=4; phase[4]=8; phase[5]=3; phase[6]=16; phase[7]=3",
+      "corridor": {
+        "id": "Gladstone_EB_to_Strand",
+        "order": [
+          "25772779",
+          "25772782",
+          "25772784"
+        ],
+        "progression_speed_kmh": 40,
+        "segment_lengths_m": [
+          60,
+          45
+        ],
+        "reference_junction": "25772784"
+      },
+      "xml_snippet": "<tlLogic id=\"25772784\" type=\"actuated\" programID=\"0\" offset=\"0\">\n    <phase duration=\"24\" state=\"rrGGrr\"/>\n    <phase duration=\"4\"  state=\"rryyrr\"/>\n    <phase duration=\"22\" state=\"rrrrGG\"/>\n    <phase duration=\"4\"  state=\"rrrryy\"/>\n    <phase duration=\"8\"  state=\"rGrrrr\"/>\n    <phase duration=\"3\"  state=\"ryrrrr\"/>\n    <phase duration=\"16\" state=\"Grrrrr\"/>\n    <phase duration=\"3\"  state=\"yrrrrr\"/>\n</tlLogic>"
+    },
+    {
+      "type": "update_attribute",
+      "target": "tlLogic",
+      "id": "25772782",
+      "attribute": "offset|phase.duration",
+      "new_value": "offset=23; phase[0]=30; phase[1]=3; phase[2]=30; phase[3]=3",
+      "corridor": {
+        "id": "Gladstone_EB_to_Strand",
+        "order": [
+          "25772779",
+          "25772782",
+          "25772784"
+        ],
+        "progression_speed_kmh": 40,
+        "segment_lengths_m": [
+          60,
+          45
+        ],
+        "reference_junction": "25772784"
+      },
+      "xml_snippet": "<tlLogic id=\"25772782\" type=\"actuated\" programID=\"0\" offset=\"23\">\n    <phase duration=\"30\" state=\"GGGrr\" minDur=\"10\" maxDur=\"70\"/>\n    <phase duration=\"3\"  state=\"yyyrr\" minDur=\"3\"  maxDur=\"3\"/>\n    <phase duration=\"30\" state=\"rrrGG\" minDur=\"7\"  maxDur=\"40\"/>\n    <phase duration=\"3\"  state=\"rrryy\" minDur=\"3\"  maxDur=\"3\"/>\n</tlLogic>"
+    },
+    {
+      "type": "update_attribute",
+      "target": "tlLogic",
+      "id": "25772779",
+      "attribute": "offset|phase.duration",
+      "new_value": "offset=12; phase[0]=40; phase[1]=3; phase[2]=20; phase[3]=3",
+      "corridor": {
+        "id": "Gladstone_EB_to_Strand",
+        "order": [
+          "25772779",
+          "25772782",
+          "25772784"
+        ],
+        "progression_speed_kmh": 40,
+        "segment_lengths_m": [
+          60,
+          45
+        ],
+        "reference_junction": "25772784"
+      },
+      "xml_snippet": "<tlLogic id=\"25772779\" type=\"actuated\" programID=\"0\" offset=\"12\">\n    <phase duration=\"40\" state=\"GGGGGrrr\" minDur=\"10\" maxDur=\"70\"/>\n    <phase duration=\"3\"  state=\"yyyyyrrr\" minDur=\"3\"  maxDur=\"3\"/>\n    <phase duration=\"20\" state=\"rrrrrGGG\" minDur=\"7\"  maxDur=\"40\"/>\n    <phase duration=\"3\"  state=\"rrrrryyy\" minDur=\"3\"  maxDur=\"3\"/>\n</tlLogic>"
+    },
+    {
+      "type": "update_attribute",
+      "target": "tlLogic",
+      "id": "TL_cluster_1345480308_25773538",
+      "attribute": "offset|phase.duration",
+      "new_value": "offset=0; phase[0]=45; phase[1]=3; phase[2]=21; phase[3]=3",
+      "corridor": {
+        "id": "Quay_to_Tamaki_Hub",
+        "order": [
+          "TL_cluster_1345480308_25773538"
+        ],
+        "progression_speed_kmh": 40,
+        "segment_lengths_m": [],
+        "reference_junction": "TL_cluster_1345480308_25773538"
+      },
+      "xml_snippet": "<tlLogic id=\"TL_cluster_1345480308_25773538\" type=\"actuated\" programID=\"0\" offset=\"0\">\n    <phase duration=\"45\" state=\"GGGGGGGrrrr\" minDur=\"10\" maxDur=\"90\"/>\n    <phase duration=\"3\"  state=\"yyyyyyyrrrr\" minDur=\"3\"  maxDur=\"3\"/>\n    <phase duration=\"21\" state=\"rrrrrrrGGGG\" minDur=\"7\"  maxDur=\"40\"/>\n    <phase duration=\"3\"  state=\"rrrrrrryyyy\" minDur=\"3\"  maxDur=\"3\"/>\n</tlLogic>"
+    }
+  ],
+  "modified_snippets": [
+    "<tlLogic id=\"25772784\" type=\"actuated\" programID=\"0\" offset=\"0\">\n    <phase duration=\"24\" state=\"rrGGrr\"/>\n    <phase duration=\"4\"  state=\"rryyrr\"/>\n    <phase duration=\"22\" state=\"rrrrGG\"/>\n    <phase duration=\"4\"  state=\"rrrryy\"/>\n    <phase duration=\"8\"  state=\"rGrrrr\"/>\n    <phase duration=\"3\"  state=\"ryrrrr\"/>\n    <phase duration=\"16\" state=\"Grrrrr\"/>\n    <phase duration=\"3\"  state=\"yrrrrr\"/>\n</tlLogic>",
+    "<tlLogic id=\"25772782\" type=\"actuated\" programID=\"0\" offset=\"23\">\n    <phase duration=\"30\" state=\"GGGrr\" minDur=\"10\" maxDur=\"70\"/>\n    <phase duration=\"3\"  state=\"yyyrr\" minDur=\"3\"  maxDur=\"3\"/>\n    <phase duration=\"30\" state=\"rrrGG\" minDur=\"7\"  maxDur=\"40\"/>\n    <phase duration=\"3\"  state=\"rrryy\" minDur=\"3\"  maxDur=\"3\"/>\n</tlLogic>",
+    "<tlLogic id=\"25772779\" type=\"actuated\" programID=\"0\" offset=\"12\">\n    <phase duration=\"40\" state=\"GGGGGrrr\" minDur=\"10\" maxDur=\"70\"/>\n    <phase duration=\"3\"  state=\"yyyyyrrr\" minDur=\"3\"  maxDur=\"3\"/>\n    <phase duration=\"20\" state=\"rrrrrGGG\" minDur=\"7\"  maxDur=\"40\"/>\n    <phase duration=\"3\"  state=\"rrrrryyy\" minDur=\"3\"  maxDur=\"3\"/>\n</tlLogic>",
+    "<tlLogic id=\"TL_cluster_1345480308_25773538\" type=\"actuated\" programID=\"0\" offset=\"0\">\n    <phase duration=\"45\" state=\"GGGGGGGrrrr\" minDur=\"10\" maxDur=\"90\"/>\n    <phase duration=\"3\"  state=\"yyyyyyyrrrr\" minDur=\"3\"  maxDur=\"3\"/>\n    <phase duration=\"21\" state=\"rrrrrrrGGGG\" minDur=\"7\"  maxDur=\"40\"/>\n    <phase duration=\"3\"  state=\"rrrrrrryyyy\" minDur=\"3\"  maxDur=\"3\"/>\n</tlLogic>"
+  ]
+}

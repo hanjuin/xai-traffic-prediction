@@ -1,0 +1,95 @@
+{
+  "reasoning": [
+    {
+      "edge_or_junction_id": "TL_cluster_1345480308_25773538",
+      "issue_detected": "Quay Street eastbound approach (edge 624515490#0) to the waterfront cluster is over-saturated: very low speeds (0.99–2.11 m/s) and extremely high occupancy (lane 2 ≈92.6%). Meanwhile, Tamaki Drive inbound (1246214209#0) shows low flows and lower occupancy.",
+      "proposed_policy": "Shift green split toward Quay St EB by lengthening its through phase and trimming the opposite phase. Coordinate offsets to form a short green wave along The Strand/Quay corridor.",
+      "justification": "Detectors loop_624515490#0_2 occupancy ≈92.6% with crawling speeds indicates strong unmet demand into this junction. By reallocating green from the underused Tamaki inbound to Quay EB, we relieve the bottleneck that propagates upstream. A small positive offset aligns platoons emerging from upstream signals."
+    },
+    {
+      "edge_or_junction_id": "25772784",
+      "issue_detected": "The Strand northbound approach (-13718894) into this signal exhibits severe congestion (avg speeds ≈3.6–4.2 m/s and occupancy up to ≈84%).",
+      "proposed_policy": "Increase the green time for the phase serving The Strand NB through movement. Keep clearances unchanged. Add a small positive offset for progression from 25772779.",
+      "justification": "High occupancy and low speeds on -13718894 indicate the approach is under-served. Rebalancing the split (+15 s to this movement group) reduces queue spillback that otherwise blocks upstream links and degrades corridor performance."
+    },
+    {
+      "edge_or_junction_id": "25772779",
+      "issue_detected": "Upstream of 25772784, the approach from The Strand (-624523286) is heavily loaded (loop_624523286_1 occupancy ≈83.8%).",
+      "proposed_policy": "Increase the mainline green (The Strand) while keeping side-street service sufficient. Maintain yellows and intergreens. Use this junction as corridor time base (offset 0) and coordinate downstream.",
+      "justification": "Elevated occupancy on -624523286_1 shows sustained demand. Extending the primary phase reduces recurrent queueing and better feeds downstream signals that are now retimed to accept the platoon."
+    }
+  ],
+  "actions": [
+    {
+      "type": "update_attribute",
+      "target": "tlLogic",
+      "id": "TL_cluster_1345480308_25773538",
+      "attribute": "offset|phase.duration",
+      "new_value": "offset=9; phase[0]=27; phase[1]=3; phase[2]=36; phase[3]=3",
+      "corridor": {
+        "id": "TheStrand_Quay_EB_Progression",
+        "order": [
+          "25772779",
+          "25772784",
+          "TL_cluster_1345480308_25773538"
+        ],
+        "progression_speed_kmh": 40,
+        "segment_lengths_m": [
+          21,
+          74
+        ],
+        "reference_junction": "25772779"
+      },
+      "xml_snippet": "<tlLogic id=\"TL_cluster_1345480308_25773538\" type=\"actuated\" programID=\"0\" offset=\"9\">\n    <phase duration=\"27\" state=\"GGGGGGGrrrr\" minDur=\"10\" maxDur=\"70\"/>\n    <phase duration=\"3\"  state=\"yyyyyyyrrrr\" minDur=\"3\" maxDur=\"3\"/>\n    <phase duration=\"36\" state=\"rrrrrrrGGGG\" minDur=\"7\" maxDur=\"40\"/>\n    <phase duration=\"3\"  state=\"rrrrrrryyyy\" minDur=\"3\" maxDur=\"3\"/>\n</tlLogic>"
+    },
+    {
+      "type": "update_attribute",
+      "target": "tlLogic",
+      "id": "25772784",
+      "attribute": "offset|phase.duration",
+      "new_value": "offset=2; phase[0]=30; phase[1]=4; phase[2]=1; phase[3]=35; phase[4]=4; phase[5]=1",
+      "corridor": {
+        "id": "TheStrand_Quay_EB_Progression",
+        "order": [
+          "25772779",
+          "25772784",
+          "TL_cluster_1345480308_25773538"
+        ],
+        "progression_speed_kmh": 40,
+        "segment_lengths_m": [
+          21,
+          74
+        ],
+        "reference_junction": "25772779"
+      },
+      "xml_snippet": "<tlLogic id=\"25772784\" type=\"actuated\" programID=\"0\" offset=\"2\">\n    <phase duration=\"30\" state=\"rrGGGG\"/>\n    <phase duration=\"4\"  state=\"rryyyy\"/>\n    <phase duration=\"1\"  state=\"rrrrrr\"/>\n    <phase duration=\"35\" state=\"GGrrrr\"/>\n    <phase duration=\"4\"  state=\"yyrrrr\"/>\n    <phase duration=\"1\"  state=\"rrrrrr\"/>\n</tlLogic>"
+    },
+    {
+      "type": "update_attribute",
+      "target": "tlLogic",
+      "id": "25772779",
+      "attribute": "offset|phase.duration",
+      "new_value": "offset=0; phase[0]=40; phase[1]=3; phase[2]=30; phase[3]=3",
+      "corridor": {
+        "id": "TheStrand_Quay_EB_Progression",
+        "order": [
+          "25772779",
+          "25772784",
+          "TL_cluster_1345480308_25773538"
+        ],
+        "progression_speed_kmh": 40,
+        "segment_lengths_m": [
+          21,
+          74
+        ],
+        "reference_junction": "25772779"
+      },
+      "xml_snippet": "<tlLogic id=\"25772779\" type=\"actuated\" programID=\"0\" offset=\"0\">\n    <phase duration=\"40\" state=\"GGGGGrrr\" minDur=\"10\" maxDur=\"70\"/>\n    <phase duration=\"3\"  state=\"yyyyyrrr\" minDur=\"3\" maxDur=\"3\"/>\n    <phase duration=\"30\" state=\"rrrrrGGG\" minDur=\"7\" maxDur=\"40\"/>\n    <phase duration=\"3\"  state=\"rrrrryyy\" minDur=\"3\" maxDur=\"3\"/>\n</tlLogic>"
+    }
+  ],
+  "modified_snippets": [
+    "<tlLogic id=\"TL_cluster_1345480308_25773538\" type=\"actuated\" programID=\"0\" offset=\"9\">\n    <phase duration=\"27\" state=\"GGGGGGGrrrr\" minDur=\"10\" maxDur=\"70\"/>\n    <phase duration=\"3\"  state=\"yyyyyyyrrrr\" minDur=\"3\" maxDur=\"3\"/>\n    <phase duration=\"36\" state=\"rrrrrrrGGGG\" minDur=\"7\" maxDur=\"40\"/>\n    <phase duration=\"3\"  state=\"rrrrrrryyyy\" minDur=\"3\" maxDur=\"3\"/>\n</tlLogic>",
+    "<tlLogic id=\"25772784\" type=\"actuated\" programID=\"0\" offset=\"2\">\n    <phase duration=\"30\" state=\"rrGGGG\"/>\n    <phase duration=\"4\"  state=\"rryyyy\"/>\n    <phase duration=\"1\"  state=\"rrrrrr\"/>\n    <phase duration=\"35\" state=\"GGrrrr\"/>\n    <phase duration=\"4\"  state=\"yyrrrr\"/>\n    <phase duration=\"1\"  state=\"rrrrrr\"/>\n</tlLogic>",
+    "<tlLogic id=\"25772779\" type=\"actuated\" programID=\"0\" offset=\"0\">\n    <phase duration=\"40\" state=\"GGGGGrrr\" minDur=\"10\" maxDur=\"70\"/>\n    <phase duration=\"3\"  state=\"yyyyyrrr\" minDur=\"3\" maxDur=\"3\"/>\n    <phase duration=\"30\" state=\"rrrrrGGG\" minDur=\"7\" maxDur=\"40\"/>\n    <phase duration=\"3\"  state=\"rrrrryyy\" minDur=\"3\" maxDur=\"3\"/>\n</tlLogic>"
+  ]
+}
