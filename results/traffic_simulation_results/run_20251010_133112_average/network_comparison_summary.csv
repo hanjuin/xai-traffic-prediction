@@ -1,0 +1,15 @@
+metric,baseline,new,delta (new - base)
+Simulation end time (s),3599.0,3599.0,0.0
+Total arrived vehicles,1647.0,1666.0,19.0
+Total teleports,58.0,3.0,-55.0
+Vehicles still running at end,129.0,103.0,-26.0
+Vehicles waiting at end,3916.0,3923.0,7.0
+Avg. mean speed over steps (m/s),1.3233,1.4044555555555556,0.08115555555555565
+Mean travel time at end (s),222.94,234.9,11.960000000000008
+Avg. mean waiting time over steps (s),359.35250833333333,561.4598083333334,202.10730000000007
+# summary steps,3600.0,3600.0,0.0
+Detector interval rows,996.0,996.0,0.0
+Detector count,19.0,19.0,0.0
+Total nVehEntered across detectors,3986.0,4029.0,43.0
+Total nVehContrib across detectors,3947.0,3979.0,32.0
+Avg detector speed over intervals (m/s),7.496237006237009,5.546792168674702,-1.9494448375623072

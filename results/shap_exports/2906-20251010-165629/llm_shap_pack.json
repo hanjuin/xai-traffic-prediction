@@ -1,0 +1,1777 @@
+{
+  "meta": {
+    "model": "TreeExplainer (SHAP)",
+    "target": "veh_per_hr",
+    "units": "veh/15min",
+    "n_rows_total": 5000,
+    "n_rows_dedup": 3725
+  },
+  "feature_glossary": {
+    "Detector_ID": "Detector ID",
+    "Lane": "Lane",
+    "hour": "hour",
+    "day": "day",
+    "dayofweek": "dayofweek",
+    "month": "month",
+    "year": "year",
+    "is_weekend": "is weekend",
+    "Direction": "Direction"
+  },
+  "global_importance": [
+    {
+      "feature": "hour",
+      "mean_abs_shap": 79.95,
+      "units": "veh/15min"
+    },
+    {
+      "feature": "Lane",
+      "mean_abs_shap": 50.54,
+      "units": "veh/15min"
+    },
+    {
+      "feature": "dayofweek",
+      "mean_abs_shap": 13.16,
+      "units": "veh/15min"
+    },
+    {
+      "feature": "Direction",
+      "mean_abs_shap": 11.54,
+      "units": "veh/15min"
+    },
+    {
+      "feature": "month",
+      "mean_abs_shap": 7.48,
+      "units": "veh/15min"
+    },
+    {
+      "feature": "day",
+      "mean_abs_shap": 3.5,
+      "units": "veh/15min"
+    },
+    {
+      "feature": "year",
+      "mean_abs_shap": 2.81,
+      "units": "veh/15min"
+    },
+    {
+      "feature": "is_weekend",
+      "mean_abs_shap": 2.58,
+      "units": "veh/15min"
+    }
+  ],
+  "residual_stats": {
+    "mae": 31.54,
+    "rmse": 52.63,
+    "over_count": 2056,
+    "under_count": 1669,
+    "median_residual": 3.41
+  },
+  "cases": [
+    {
+      "id": "2024-10-04 09:00:00",
+      "y_true": 670.0,
+      "y_hat": 227.89,
+      "residual": 442.11,
+      "top_contributors": [
+        {
+          "feature": "Lane",
+          "value": 4.0,
+          "contribution": 44.47
+        },
+        {
+          "feature": "dayofweek",
+          "value": 4.0,
+          "contribution": 15.1
+        },
+        {
+          "feature": "month",
+          "value": 4.0,
+          "contribution": -11.82
+        },
+        {
+          "feature": "hour",
+          "value": 3.0,
+          "contribution": 4.76
+        },
+        {
+          "feature": "day",
+          "value": 9.0,
+          "contribution": -3.76
+        }
+      ]
+    },
+    {
+      "id": "2025-02-04 08:00:00",
+      "y_true": 1094.0,
+      "y_hat": 751.16,
+      "residual": 342.84,
+      "top_contributors": [
+        {
+          "feature": "hour",
+          "value": 0.0,
+          "contribution": -114.8
+        },
+        {
+          "feature": "Lane",
+          "value": 3.0,
+          "contribution": -25.89
+        },
+        {
+          "feature": "dayofweek",
+          "value": 4.0,
+          "contribution": 5.31
+        },
+        {
+          "feature": "Direction",
+          "value": 0.0,
+          "contribution": -2.58
+        },
+        {
+          "feature": "year",
+          "value": 2.0,
+          "contribution": -2.05
+        }
+      ]
+    },
+    {
+      "id": "2024-10-04 23:00:00",
+      "y_true": 422.0,
+      "y_hat": 86.94,
+      "residual": 335.06,
+      "top_contributors": [
+        {
+          "feature": "Lane",
+          "value": 8.0,
+          "contribution": 148.64
+        },
+        {
+          "feature": "Direction",
+          "value": 0.0,
+          "contribution": 28.39
+        },
+        {
+          "feature": "month",
+          "value": 4.0,
+          "contribution": -12.93
+        },
+        {
+          "feature": "hour",
+          "value": 2.0,
+          "contribution": -4.87
+        },
+        {
+          "feature": "dayofweek",
+          "value": 4.0,
+          "contribution": 3.68
+        }
+      ]
+    },
+    {
+      "id": "2025-04-01 08:00:00",
+      "y_true": 1087.0,
+      "y_hat": 793.17,
+      "residual": 293.83,
+      "top_contributors": [
+        {
+          "feature": "hour",
+          "value": 0.0,
+          "contribution": -114.33
+        },
+        {
+          "feature": "Lane",
+          "value": 3.0,
+          "contribution": -14.38
+        },
+        {
+          "feature": "month",
+          "value": 1.0,
+          "contribution": -12.92
+        },
+        {
+          "feature": "dayofweek",
+          "value": 1.0,
+          "contribution": 6.52
+        },
+        {
+          "feature": "Direction",
+          "value": 0.0,
+          "contribution": -6.07
+        }
+      ]
+    },
+    {
+      "id": "2025-06-07 12:00:00",
+      "y_true": 828.0,
+      "y_hat": 535.23,
+      "residual": 292.77,
+      "top_contributors": [
+        {
+          "feature": "hour",
+          "value": 0.0,
+          "contribution": 73.71
+        },
+        {
+          "feature": "Direction",
+          "value": 1.0,
+          "contribution": -16.92
+        },
+        {
+          "feature": "Lane",
+          "value": 3.0,
+          "contribution": -8.28
+        },
+        {
+          "feature": "dayofweek",
+          "value": 7.0,
+          "contribution": 2.89
+        },
+        {
+          "feature": "day",
+          "value": 12.0,
+          "contribution": -1.45
+        }
+      ]
+    },
+    {
+      "id": "2025-04-29 22:00:00",
+      "y_true": 361.0,
+      "y_hat": 71.81,
+      "residual": 289.19,
+      "top_contributors": [
+        {
+          "feature": "hour",
+          "value": 0.0,
+          "contribution": 62.33
+        },
+        {
+          "feature": "Lane",
+          "value": 9.0,
+          "contribution": -55.57
+        },
+        {
+          "feature": "Direction",
+          "value": 0.0,
+          "contribution": -17.23
+        },
+        {
+          "feature": "dayofweek",
+          "value": 29.0,
+          "contribution": -15.29
+        },
+        {
+          "feature": "year",
+          "value": 4.0,
+          "contribution": -2.8
+        }
+      ]
+    },
+    {
+      "id": "2025-02-15 12:00:00",
+      "y_true": 471.0,
+      "y_hat": 184.67,
+      "residual": 286.33,
+      "top_contributors": [
+        {
+          "feature": "Lane",
+          "value": 9.0,
+          "contribution": -45.01
+        },
+        {
+          "feature": "hour",
+          "value": 0.0,
+          "contribution": -17.43
+        },
+        {
+          "feature": "Direction",
+          "value": 1.0,
+          "contribution": -10.03
+        },
+        {
+          "feature": "month",
+          "value": 5.0,
+          "contribution": -9.83
+        },
+        {
+          "feature": "day",
+          "value": 12.0,
+          "contribution": -9.74
+        }
+      ]
+    },
+    {
+      "id": "2025-03-24 08:00:00",
+      "y_true": 1069.0,
+      "y_hat": 808.55,
+      "residual": 260.45,
+      "top_contributors": [
+        {
+          "feature": "hour",
+          "value": 0.0,
+          "contribution": -28.67
+        },
+        {
+          "feature": "Lane",
+          "value": 3.0,
+          "contribution": -14.25
+        },
+        {
+          "feature": "dayofweek",
+          "value": 24.0,
+          "contribution": 12.38
+        },
+        {
+          "feature": "month",
+          "value": 0.0,
+          "contribution": 11.29
+        },
+        {
+          "feature": "Direction",
+          "value": 0.0,
+          "contribution": -3.93
+        }
+      ]
+    },
+    {
+      "id": "2024-12-05 08:00:00",
+      "y_true": 1041.0,
+      "y_hat": 796.51,
+      "residual": 244.49,
+      "top_contributors": [
+        {
+          "feature": "hour",
+          "value": 0.0,
+          "contribution": -89.06
+        },
+        {
+          "feature": "Lane",
+          "value": 3.0,
+          "contribution": -23.09
+        },
+        {
+          "feature": "dayofweek",
+          "value": 5.0,
+          "contribution": -7.29
+        },
+        {
+          "feature": "year",
+          "value": 12.0,
+          "contribution": -2.01
+        },
+        {
+          "feature": "month",
+          "value": 3.0,
+          "contribution": 1.94
+        }
+      ]
+    },
+    {
+      "id": "2025-01-18 12:00:00",
+      "y_true": 765.0,
+      "y_hat": 526.01,
+      "residual": 238.99,
+      "top_contributors": [
+        {
+          "feature": "hour",
+          "value": 0.0,
+          "contribution": 91.78
+        },
+        {
+          "feature": "Lane",
+          "value": 3.0,
+          "contribution": 72.68
+        },
+        {
+          "feature": "month",
+          "value": 5.0,
+          "contribution": -16.19
+        },
+        {
+          "feature": "day",
+          "value": 12.0,
+          "contribution": -9.0
+        },
+        {
+          "feature": "dayofweek",
+          "value": 18.0,
+          "contribution": 7.67
+        }
+      ]
+    },
+    {
+      "id": "2025-04-28 08:00:00",
+      "y_true": 1038.0,
+      "y_hat": 800.49,
+      "residual": 237.51,
+      "top_contributors": [
+        {
+          "feature": "hour",
+          "value": 0.0,
+          "contribution": 51.93
+        },
+        {
+          "feature": "Lane",
+          "value": 3.0,
+          "contribution": -18.99
+        },
+        {
+          "feature": "month",
+          "value": 0.0,
+          "contribution": -12.71
+        },
+        {
+          "feature": "Direction",
+          "value": 0.0,
+          "contribution": -8.63
+        },
+        {
+          "feature": "dayofweek",
+          "value": 28.0,
+          "contribution": 7.4
+        }
+      ]
+    },
+    {
+      "id": "2024-12-31 23:00:00",
+      "y_true": 298.0,
+      "y_hat": 61.68,
+      "residual": 236.32,
+      "top_contributors": [
+        {
+          "feature": "Lane",
+          "value": 9.0,
+          "contribution": -90.25
+        },
+        {
+          "feature": "hour",
+          "value": 0.0,
+          "contribution": 55.44
+        },
+        {
+          "feature": "dayofweek",
+          "value": 31.0,
+          "contribution": 20.05
+        },
+        {
+          "feature": "Direction",
+          "value": 0.0,
+          "contribution": -18.93
+        },
+        {
+          "feature": "year",
+          "value": 12.0,
+          "contribution": -5.75
+        }
+      ]
+    },
+    {
+      "id": "2024-10-28 08:00:00",
+      "y_true": 203.0,
+      "y_hat": 825.63,
+      "residual": -622.63,
+      "top_contributors": [
+        {
+          "feature": "hour",
+          "value": 0.0,
+          "contribution": -72.91
+        },
+        {
+          "feature": "Lane",
+          "value": 3.0,
+          "contribution": -13.28
+        },
+        {
+          "feature": "dayofweek",
+          "value": 28.0,
+          "contribution": -12.56
+        },
+        {
+          "feature": "Direction",
+          "value": 0.0,
+          "contribution": -6.08
+        },
+        {
+          "feature": "month",
+          "value": 0.0,
+          "contribution": 5.39
+        }
+      ]
+    },
+    {
+      "id": "2025-04-25 07:00:00",
+      "y_true": 193.0,
+      "y_hat": 676.32,
+      "residual": -483.32,
+      "top_contributors": [
+        {
+          "feature": "hour",
+          "value": 0.0,
+          "contribution": -119.96
+        },
+        {
+          "feature": "Lane",
+          "value": 3.0,
+          "contribution": -33.97
+        },
+        {
+          "feature": "Direction",
+          "value": 0.0,
+          "contribution": 14.87
+        },
+        {
+          "feature": "dayofweek",
+          "value": 25.0,
+          "contribution": 6.36
+        },
+        {
+          "feature": "day",
+          "value": 7.0,
+          "contribution": -1.38
+        }
+      ]
+    },
+    {
+      "id": "2025-01-02 08:00:00",
+      "y_true": 143.0,
+      "y_hat": 507.26,
+      "residual": -364.26,
+      "top_contributors": [
+        {
+          "feature": "Lane",
+          "value": 3.0,
+          "contribution": -86.25
+        },
+        {
+          "feature": "hour",
+          "value": 0.0,
+          "contribution": 18.97
+        },
+        {
+          "feature": "dayofweek",
+          "value": 2.0,
+          "contribution": 18.7
+        },
+        {
+          "feature": "Direction",
+          "value": 0.0,
+          "contribution": -13.86
+        },
+        {
+          "feature": "year",
+          "value": 1.0,
+          "contribution": -4.44
+        }
+      ]
+    },
+    {
+      "id": "2024-12-31 08:00:00",
+      "y_true": 231.0,
+      "y_hat": 584.8,
+      "residual": -353.8,
+      "top_contributors": [
+        {
+          "feature": "hour",
+          "value": 0.0,
+          "contribution": 39.38
+        },
+        {
+          "feature": "Lane",
+          "value": 3.0,
+          "contribution": 35.86
+        },
+        {
+          "feature": "dayofweek",
+          "value": 31.0,
+          "contribution": 14.04
+        },
+        {
+          "feature": "Direction",
+          "value": 0.0,
+          "contribution": -13.76
+        },
+        {
+          "feature": "day",
+          "value": 8.0,
+          "contribution": -10.33
+        }
+      ]
+    },
+    {
+      "id": "2025-01-27 08:00:00",
+      "y_true": 48.0,
+      "y_hat": 384.67,
+      "residual": -336.67,
+      "top_contributors": [
+        {
+          "feature": "Lane",
+          "value": 4.0,
+          "contribution": -79.27
+        },
+        {
+          "feature": "hour",
+          "value": 3.0,
+          "contribution": 16.81
+        },
+        {
+          "feature": "Direction",
+          "value": 0.0,
+          "contribution": -13.72
+        },
+        {
+          "feature": "dayofweek",
+          "value": 27.0,
+          "contribution": 11.82
+        },
+        {
+          "feature": "month",
+          "value": 0.0,
+          "contribution": 4.52
+        }
+      ]
+    },
+    {
+      "id": "2025-06-20 08:00:00",
+      "y_true": 129.0,
+      "y_hat": 402.37,
+      "residual": -273.37,
+      "top_contributors": [
+        {
+          "feature": "hour",
+          "value": 3.0,
+          "contribution": -108.29
+        },
+        {
+          "feature": "Lane",
+          "value": 5.0,
+          "contribution": -24.92
+        },
+        {
+          "feature": "month",
+          "value": 4.0,
+          "contribution": 6.99
+        },
+        {
+          "feature": "Direction",
+          "value": 0.0,
+          "contribution": -6.32
+        },
+        {
+          "feature": "dayofweek",
+          "value": 20.0,
+          "contribution": 4.62
+        }
+      ]
+    },
+    {
+      "id": "2025-02-23 15:00:00",
+      "y_true": 315.0,
+      "y_hat": 574.64,
+      "residual": -259.64,
+      "top_contributors": [
+        {
+          "feature": "Lane",
+          "value": 3.0,
+          "contribution": -27.99
+        },
+        {
+          "feature": "month",
+          "value": 6.0,
+          "contribution": -19.98
+        },
+        {
+          "feature": "hour",
+          "value": 0.0,
+          "contribution": -13.76
+        },
+        {
+          "feature": "year",
+          "value": 2.0,
+          "contribution": -10.95
+        },
+        {
+          "feature": "Direction",
+          "value": 1.0,
+          "contribution": -9.76
+        }
+      ]
+    },
+    {
+      "id": "2025-02-15 16:00:00",
+      "y_true": 327.0,
+      "y_hat": 580.98,
+      "residual": -253.98,
+      "top_contributors": [
+        {
+          "feature": "hour",
+          "value": 0.0,
+          "contribution": -29.37
+        },
+        {
+          "feature": "Direction",
+          "value": 1.0,
+          "contribution": -10.43
+        },
+        {
+          "feature": "month",
+          "value": 5.0,
+          "contribution": 7.34
+        },
+        {
+          "feature": "Lane",
+          "value": 3.0,
+          "contribution": -7.12
+        },
+        {
+          "feature": "dayofweek",
+          "value": 15.0,
+          "contribution": 1.5
+        }
+      ]
+    },
+    {
+      "id": "2025-02-16 16:00:00",
+      "y_true": 319.0,
+      "y_hat": 551.25,
+      "residual": -232.25,
+      "top_contributors": [
+        {
+          "feature": "hour",
+          "value": 0.0,
+          "contribution": -106.09
+        },
+        {
+          "feature": "dayofweek",
+          "value": 16.0,
+          "contribution": 9.26
+        },
+        {
+          "feature": "month",
+          "value": 6.0,
+          "contribution": -6.45
+        },
+        {
+          "feature": "Lane",
+          "value": 3.0,
+          "contribution": -2.31
+        },
+        {
+          "feature": "Direction",
+          "value": 1.0,
+          "contribution": 2.18
+        }
+      ]
+    },
+    {
+      "id": "2025-04-19 15:00:00",
+      "y_true": 413.0,
+      "y_hat": 620.1,
+      "residual": -207.1,
+      "top_contributors": [
+        {
+          "feature": "hour",
+          "value": 0.0,
+          "contribution": -49.12
+        },
+        {
+          "feature": "Lane",
+          "value": 3.0,
+          "contribution": -28.59
+        },
+        {
+          "feature": "dayofweek",
+          "value": 19.0,
+          "contribution": -24.18
+        },
+        {
+          "feature": "month",
+          "value": 5.0,
+          "contribution": -16.75
+        },
+        {
+          "feature": "Direction",
+          "value": 1.0,
+          "contribution": -9.87
+        }
+      ]
+    },
+    {
+      "id": "2024-12-25 06:00:00",
+      "y_true": 48.0,
+      "y_hat": 253.0,
+      "residual": -205.0,
+      "top_contributors": [
+        {
+          "feature": "Lane",
+          "value": 3.0,
+          "contribution": -104.48
+        },
+        {
+          "feature": "hour",
+          "value": 0.0,
+          "contribution": 41.03
+        },
+        {
+          "feature": "dayofweek",
+          "value": 25.0,
+          "contribution": 14.68
+        },
+        {
+          "feature": "Direction",
+          "value": 0.0,
+          "contribution": -9.48
+        },
+        {
+          "feature": "is_weekend",
+          "value": 2024.0,
+          "contribution": 3.19
+        }
+      ]
+    },
+    {
+      "id": "2024-12-31 17:00:00",
+      "y_true": 244.0,
+      "y_hat": 442.39,
+      "residual": -198.39,
+      "top_contributors": [
+        {
+          "feature": "hour",
+          "value": 2.0,
+          "contribution": -45.16
+        },
+        {
+          "feature": "Lane",
+          "value": 2.0,
+          "contribution": -34.41
+        },
+        {
+          "feature": "month",
+          "value": 1.0,
+          "contribution": -17.26
+        },
+        {
+          "feature": "dayofweek",
+          "value": 31.0,
+          "contribution": -8.8
+        },
+        {
+          "feature": "Direction",
+          "value": 0.0,
+          "contribution": -8.71
+        }
+      ]
+    },
+    {
+      "id": "2025-06-08 01:00:00",
+      "y_true": 35.0,
+      "y_hat": 31.59,
+      "residual": 3.41,
+      "top_contributors": [
+        {
+          "feature": "hour",
+          "value": 2.0,
+          "contribution": -104.12
+        },
+        {
+          "feature": "Lane",
+          "value": 2.0,
+          "contribution": -15.23
+        },
+        {
+          "feature": "Direction",
+          "value": 1.0,
+          "contribution": -6.2
+        },
+        {
+          "feature": "month",
+          "value": 6.0,
+          "contribution": 3.27
+        },
+        {
+          "feature": "dayofweek",
+          "value": 8.0,
+          "contribution": 2.02
+        }
+      ]
+    },
+    {
+      "id": "2025-02-28 01:00:00",
+      "y_true": 22.0,
+      "y_hat": 18.59,
+      "residual": 3.41,
+      "top_contributors": [
+        {
+          "feature": "Lane",
+          "value": 9.0,
+          "contribution": 219.03
+        },
+        {
+          "feature": "hour",
+          "value": 0.0,
+          "contribution": 167.93
+        },
+        {
+          "feature": "Direction",
+          "value": 0.0,
+          "contribution": 35.14
+        },
+        {
+          "feature": "dayofweek",
+          "value": 28.0,
+          "contribution": -23.38
+        },
+        {
+          "feature": "is_weekend",
+          "value": 2025.0,
+          "contribution": 4.07
+        }
+      ]
+    },
+    {
+      "id": "2024-10-19 23:00:00",
+      "y_true": 79.0,
+      "y_hat": 75.58,
+      "residual": 3.42,
+      "top_contributors": [
+        {
+          "feature": "hour",
+          "value": 3.0,
+          "contribution": 52.57
+        },
+        {
+          "feature": "Lane",
+          "value": 6.0,
+          "contribution": -25.19
+        },
+        {
+          "feature": "Direction",
+          "value": 1.0,
+          "contribution": -8.09
+        },
+        {
+          "feature": "dayofweek",
+          "value": 19.0,
+          "contribution": 5.52
+        },
+        {
+          "feature": "month",
+          "value": 5.0,
+          "contribution": 2.92
+        }
+      ]
+    },
+    {
+      "id": "2025-04-05 00:00:00",
+      "y_true": 56.0,
+      "y_hat": 52.52,
+      "residual": 3.48,
+      "top_contributors": [
+        {
+          "feature": "Lane",
+          "value": 9.0,
+          "contribution": -71.39
+        },
+        {
+          "feature": "hour",
+          "value": 0.0,
+          "contribution": 68.38
+        },
+        {
+          "feature": "Direction",
+          "value": 1.0,
+          "contribution": 39.01
+        },
+        {
+          "feature": "dayofweek",
+          "value": 5.0,
+          "contribution": 10.35
+        },
+        {
+          "feature": "year",
+          "value": 4.0,
+          "contribution": -3.48
+        }
+      ]
+    },
+    {
+      "id": "2024-12-06 02:00:00",
+      "y_true": 17.0,
+      "y_hat": 13.66,
+      "residual": 3.34,
+      "top_contributors": [
+        {
+          "feature": "Lane",
+          "value": 9.0,
+          "contribution": 42.08
+        },
+        {
+          "feature": "dayofweek",
+          "value": 6.0,
+          "contribution": -14.76
+        },
+        {
+          "feature": "hour",
+          "value": 0.0,
+          "contribution": -8.82
+        },
+        {
+          "feature": "day",
+          "value": 2.0,
+          "contribution": -5.65
+        },
+        {
+          "feature": "month",
+          "value": 4.0,
+          "contribution": 4.55
+        }
+      ]
+    },
+    {
+      "id": "2024-12-28 02:00:00",
+      "y_true": 23.0,
+      "y_hat": 19.66,
+      "residual": 3.34,
+      "top_contributors": [
+        {
+          "feature": "hour",
+          "value": 3.0,
+          "contribution": -102.66
+        },
+        {
+          "feature": "dayofweek",
+          "value": 28.0,
+          "contribution": 8.21
+        },
+        {
+          "feature": "Lane",
+          "value": 7.0,
+          "contribution": -6.8
+        },
+        {
+          "feature": "month",
+          "value": 5.0,
+          "contribution": 5.8
+        },
+        {
+          "feature": "Direction",
+          "value": 1.0,
+          "contribution": 1.58
+        }
+      ]
+    },
+    {
+      "id": "2025-04-23 12:00:00",
+      "y_true": 170.0,
+      "y_hat": 166.67,
+      "residual": 3.33,
+      "top_contributors": [
+        {
+          "feature": "hour",
+          "value": 2.0,
+          "contribution": -50.46
+        },
+        {
+          "feature": "Lane",
+          "value": 8.0,
+          "contribution": -42.24
+        },
+        {
+          "feature": "Direction",
+          "value": 0.0,
+          "contribution": -12.49
+        },
+        {
+          "feature": "dayofweek",
+          "value": 23.0,
+          "contribution": 8.91
+        },
+        {
+          "feature": "month",
+          "value": 2.0,
+          "contribution": -4.57
+        }
+      ]
+    },
+    {
+      "id": "2024-10-07 20:00:00",
+      "y_true": 53.0,
+      "y_hat": 49.69,
+      "residual": 3.31,
+      "top_contributors": [
+        {
+          "feature": "hour",
+          "value": 3.0,
+          "contribution": 108.68
+        },
+        {
+          "feature": "dayofweek",
+          "value": 7.0,
+          "contribution": 21.03
+        },
+        {
+          "feature": "Direction",
+          "value": 0.0,
+          "contribution": -10.39
+        },
+        {
+          "feature": "month",
+          "value": 0.0,
+          "contribution": 9.38
+        },
+        {
+          "feature": "Lane",
+          "value": 4.0,
+          "contribution": -5.46
+        }
+      ]
+    },
+    {
+      "id": "2025-07-27 23:00:00",
+      "y_true": 29.0,
+      "y_hat": 31.37,
+      "residual": -2.37,
+      "top_contributors": [
+        {
+          "feature": "hour",
+          "value": 0.0,
+          "contribution": -108.45
+        },
+        {
+          "feature": "day",
+          "value": 23.0,
+          "contribution": -7.33
+        },
+        {
+          "feature": "Direction",
+          "value": 1.0,
+          "contribution": -6.31
+        },
+        {
+          "feature": "dayofweek",
+          "value": 27.0,
+          "contribution": 5.6
+        },
+        {
+          "feature": "Lane",
+          "value": 9.0,
+          "contribution": 3.31
+        }
+      ]
+    },
+    {
+      "id": "2025-05-09 07:00:00",
+      "y_true": 325.0,
+      "y_hat": 301.12,
+      "residual": 23.88,
+      "top_contributors": [
+        {
+          "feature": "hour",
+          "value": 3.0,
+          "contribution": -90.39
+        },
+        {
+          "feature": "day",
+          "value": 7.0,
+          "contribution": -10.59
+        },
+        {
+          "feature": "Lane",
+          "value": 4.0,
+          "contribution": 9.18
+        },
+        {
+          "feature": "dayofweek",
+          "value": 9.0,
+          "contribution": -7.55
+        },
+        {
+          "feature": "Direction",
+          "value": 0.0,
+          "contribution": -4.51
+        }
+      ]
+    },
+    {
+      "id": "2024-12-01 00:00:00",
+      "y_true": 44.0,
+      "y_hat": 63.68,
+      "residual": -19.68,
+      "top_contributors": [
+        {
+          "feature": "hour",
+          "value": 2.0,
+          "contribution": -107.09
+        },
+        {
+          "feature": "Lane",
+          "value": 2.0,
+          "contribution": -22.97
+        },
+        {
+          "feature": "dayofweek",
+          "value": 1.0,
+          "contribution": -6.58
+        },
+        {
+          "feature": "year",
+          "value": 12.0,
+          "contribution": -2.9
+        },
+        {
+          "feature": "day",
+          "value": 0.0,
+          "contribution": 2.81
+        }
+      ]
+    },
+    {
+      "id": "2025-07-28 12:00:00",
+      "y_true": 486.0,
+      "y_hat": 495.99,
+      "residual": -9.99,
+      "top_contributors": [
+        {
+          "feature": "Lane",
+          "value": 3.0,
+          "contribution": -27.46
+        },
+        {
+          "feature": "hour",
+          "value": 0.0,
+          "contribution": -21.0
+        },
+        {
+          "feature": "Direction",
+          "value": 0.0,
+          "contribution": -8.6
+        },
+        {
+          "feature": "dayofweek",
+          "value": 28.0,
+          "contribution": 6.66
+        },
+        {
+          "feature": "month",
+          "value": 0.0,
+          "contribution": 3.19
+        }
+      ]
+    },
+    {
+      "id": "2024-12-20 02:00:00",
+      "y_true": 14.0,
+      "y_hat": 27.47,
+      "residual": -13.47,
+      "top_contributors": [
+        {
+          "feature": "hour",
+          "value": 2.0,
+          "contribution": 67.11
+        },
+        {
+          "feature": "Lane",
+          "value": 2.0,
+          "contribution": -17.45
+        },
+        {
+          "feature": "Direction",
+          "value": 0.0,
+          "contribution": -8.04
+        },
+        {
+          "feature": "dayofweek",
+          "value": 20.0,
+          "contribution": 6.71
+        },
+        {
+          "feature": "month",
+          "value": 4.0,
+          "contribution": -2.85
+        }
+      ]
+    },
+    {
+      "id": "2024-10-14 20:00:00",
+      "y_true": 96.0,
+      "y_hat": 105.73,
+      "residual": -9.73,
+      "top_contributors": [
+        {
+          "feature": "hour",
+          "value": 0.0,
+          "contribution": 60.6
+        },
+        {
+          "feature": "Lane",
+          "value": 9.0,
+          "contribution": -33.71
+        },
+        {
+          "feature": "Direction",
+          "value": 0.0,
+          "contribution": -15.28
+        },
+        {
+          "feature": "dayofweek",
+          "value": 14.0,
+          "contribution": -12.9
+        },
+        {
+          "feature": "month",
+          "value": 0.0,
+          "contribution": 3.84
+        }
+      ]
+    },
+    {
+      "id": "2024-10-17 21:00:00",
+      "y_true": 114.0,
+      "y_hat": 120.79,
+      "residual": -6.79,
+      "top_contributors": [
+        {
+          "feature": "hour",
+          "value": 1.0,
+          "contribution": -111.96
+        },
+        {
+          "feature": "Lane",
+          "value": 1.0,
+          "contribution": -25.84
+        },
+        {
+          "feature": "Direction",
+          "value": 0.0,
+          "contribution": -5.81
+        },
+        {
+          "feature": "day",
+          "value": 21.0,
+          "contribution": -5.55
+        },
+        {
+          "feature": "year",
+          "value": 10.0,
+          "contribution": -4.57
+        }
+      ]
+    },
+    {
+      "id": "2025-07-09 05:00:00",
+      "y_true": 29.0,
+      "y_hat": 41.61,
+      "residual": -12.61,
+      "top_contributors": [
+        {
+          "feature": "hour",
+          "value": 2.0,
+          "contribution": -111.94
+        },
+        {
+          "feature": "Lane",
+          "value": 2.0,
+          "contribution": -23.04
+        },
+        {
+          "feature": "Direction",
+          "value": 0.0,
+          "contribution": -5.87
+        },
+        {
+          "feature": "month",
+          "value": 2.0,
+          "contribution": -3.45
+        },
+        {
+          "feature": "dayofweek",
+          "value": 9.0,
+          "contribution": 1.97
+        }
+      ]
+    }
+  ],
+  "feature_spotlights": {
+    "hour": {
+      "strong_positive": [
+        {
+          "id": "2025-03-22 18:00:00",
+          "value": 3.0,
+          "contribution": 272.38,
+          "y_true": 146.0,
+          "y_hat": 173.53
+        },
+        {
+          "id": "2025-05-11 18:00:00",
+          "value": 1.0,
+          "contribution": 271.05,
+          "y_true": 192.0,
+          "y_hat": 156.22
+        },
+        {
+          "id": "2025-06-17 03:00:00",
+          "value": 3.0,
+          "contribution": 269.94,
+          "y_true": 8.0,
+          "y_hat": 3.61
+        }
+      ],
+      "strong_negative": [
+        {
+          "id": "2025-06-22 19:00:00",
+          "value": 3.0,
+          "contribution": -226.39,
+          "y_true": 79.0,
+          "y_hat": 70.05
+        },
+        {
+          "id": "2024-11-12 00:00:00",
+          "value": 0.0,
+          "contribution": -225.25,
+          "y_true": 74.0,
+          "y_hat": 164.96
+        },
+        {
+          "id": "2025-07-24 18:00:00",
+          "value": 2.0,
+          "contribution": -222.25,
+          "y_true": 279.0,
+          "y_hat": 336.91
+        }
+      ]
+    },
+    "Lane": {
+      "strong_positive": [
+        {
+          "id": "2025-05-11 18:00:00",
+          "value": 1.0,
+          "contribution": 302.95,
+          "y_true": 192.0,
+          "y_hat": 156.22
+        },
+        {
+          "id": "2025-03-22 18:00:00",
+          "value": 6.0,
+          "contribution": 301.39,
+          "y_true": 146.0,
+          "y_hat": 173.53
+        },
+        {
+          "id": "2025-06-17 03:00:00",
+          "value": 5.0,
+          "contribution": 289.21,
+          "y_true": 8.0,
+          "y_hat": 3.61
+        }
+      ],
+      "strong_negative": [
+        {
+          "id": "2025-03-06 21:00:00",
+          "value": 8.0,
+          "contribution": -113.71,
+          "y_true": 127.0,
+          "y_hat": 103.39
+        },
+        {
+          "id": "2024-12-03 21:00:00",
+          "value": 4.0,
+          "contribution": -113.67,
+          "y_true": 97.0,
+          "y_hat": 72.77
+        },
+        {
+          "id": "2025-01-23 14:00:00",
+          "value": 5.0,
+          "contribution": -113.42,
+          "y_true": 183.0,
+          "y_hat": 185.02
+        }
+      ]
+    },
+    "dayofweek": {
+      "strong_positive": [
+        {
+          "id": "2025-06-01 12:00:00",
+          "value": 1.0,
+          "contribution": 60.29,
+          "y_true": 208.0,
+          "y_hat": 161.82
+        },
+        {
+          "id": "2025-03-02 20:00:00",
+          "value": 2.0,
+          "contribution": 59.27,
+          "y_true": 98.0,
+          "y_hat": 91.37
+        },
+        {
+          "id": "2024-12-12 16:00:00",
+          "value": 12.0,
+          "contribution": 57.71,
+          "y_true": 564.0,
+          "y_hat": 483.77
+        }
+      ],
+      "strong_negative": [
+        {
+          "id": "2025-07-08 03:00:00",
+          "value": 8.0,
+          "contribution": -159.5,
+          "y_true": 41.0,
+          "y_hat": 13.81
+        },
+        {
+          "id": "2025-05-08 22:00:00",
+          "value": 8.0,
+          "contribution": -159.06,
+          "y_true": 150.0,
+          "y_hat": 174.47
+        },
+        {
+          "id": "2025-05-02 21:00:00",
+          "value": 2.0,
+          "contribution": -140.45,
+          "y_true": 138.0,
+          "y_hat": 107.17
+        }
+      ]
+    },
+    "Direction": {
+      "strong_positive": [
+        {
+          "id": "2025-03-22 18:00:00",
+          "value": 1.0,
+          "contribution": 51.47,
+          "y_true": 146.0,
+          "y_hat": 173.53
+        },
+        {
+          "id": "2024-12-31 21:00:00",
+          "value": 0.0,
+          "contribution": 51.23,
+          "y_true": 104.0,
+          "y_hat": 88.96
+        },
+        {
+          "id": "2024-11-10 16:00:00",
+          "value": 1.0,
+          "contribution": 51.17,
+          "y_true": 401.0,
+          "y_hat": 346.07
+        }
+      ],
+      "strong_negative": [
+        {
+          "id": "2025-03-22 03:00:00",
+          "value": 1.0,
+          "contribution": -23.34,
+          "y_true": 50.0,
+          "y_hat": 56.74
+        },
+        {
+          "id": "2025-06-23 04:00:00",
+          "value": 0.0,
+          "contribution": -21.45,
+          "y_true": 7.0,
+          "y_hat": 1.54
+        },
+        {
+          "id": "2025-01-09 13:00:00",
+          "value": 0.0,
+          "contribution": -19.97,
+          "y_true": 136.0,
+          "y_hat": 109.32
+        }
+      ]
+    },
+    "month": {
+      "strong_positive": [
+        {
+          "id": "2024-12-12 07:00:00",
+          "value": 3.0,
+          "contribution": 44.01,
+          "y_true": 71.0,
+          "y_hat": 107.86
+        },
+        {
+          "id": "2025-04-04 18:00:00",
+          "value": 4.0,
+          "contribution": 43.63,
+          "y_true": 197.0,
+          "y_hat": 134.41
+        },
+        {
+          "id": "2025-05-11 18:00:00",
+          "value": 6.0,
+          "contribution": 41.69,
+          "y_true": 192.0,
+          "y_hat": 156.22
+        }
+      ],
+      "strong_negative": [
+        {
+          "id": "2024-11-01 06:00:00",
+          "value": 4.0,
+          "contribution": -71.74,
+          "y_true": 190.0,
+          "y_hat": 179.9
+        },
+        {
+          "id": "2024-11-19 22:00:00",
+          "value": 1.0,
+          "contribution": -70.93,
+          "y_true": 83.0,
+          "y_hat": 89.79
+        },
+        {
+          "id": "2025-04-08 21:00:00",
+          "value": 1.0,
+          "contribution": -67.77,
+          "y_true": 73.0,
+          "y_hat": 94.0
+        }
+      ]
+    },
+    "day": {
+      "strong_positive": [
+        {
+          "id": "2025-02-03 19:00:00",
+          "value": 19.0,
+          "contribution": 28.66,
+          "y_true": 354.0,
+          "y_hat": 332.07
+        },
+        {
+          "id": "2025-01-06 08:00:00",
+          "value": 8.0,
+          "contribution": 28.07,
+          "y_true": 287.0,
+          "y_hat": 272.6
+        },
+        {
+          "id": "2024-12-14 21:00:00",
+          "value": 21.0,
+          "contribution": 27.26,
+          "y_true": 114.0,
+          "y_hat": 113.48
+        }
+      ],
+      "strong_negative": [
+        {
+          "id": "2025-03-21 01:00:00",
+          "value": 1.0,
+          "contribution": -51.94,
+          "y_true": 24.0,
+          "y_hat": 17.8
+        },
+        {
+          "id": "2025-07-20 12:00:00",
+          "value": 12.0,
+          "contribution": -50.16,
+          "y_true": 98.0,
+          "y_hat": 144.79
+        },
+        {
+          "id": "2025-04-07 10:00:00",
+          "value": 10.0,
+          "contribution": -48.59,
+          "y_true": 461.0,
+          "y_hat": 473.4
+        }
+      ]
+    },
+    "year": {
+      "strong_positive": [
+        {
+          "id": "2024-12-14 21:00:00",
+          "value": 12.0,
+          "contribution": 21.38,
+          "y_true": 114.0,
+          "y_hat": 113.48
+        },
+        {
+          "id": "2025-04-04 18:00:00",
+          "value": 4.0,
+          "contribution": 21.01,
+          "y_true": 197.0,
+          "y_hat": 134.41
+        },
+        {
+          "id": "2025-03-18 14:00:00",
+          "value": 3.0,
+          "contribution": 19.41,
+          "y_true": 147.0,
+          "y_hat": 188.52
+        }
+      ],
+      "strong_negative": [
+        {
+          "id": "2024-11-23 02:00:00",
+          "value": 11.0,
+          "contribution": -23.77,
+          "y_true": 30.0,
+          "y_hat": 22.73
+        },
+        {
+          "id": "2025-04-15 03:00:00",
+          "value": 4.0,
+          "contribution": -23.77,
+          "y_true": 7.0,
+          "y_hat": 18.99
+        },
+        {
+          "id": "2025-02-18 12:00:00",
+          "value": 2.0,
+          "contribution": -22.1,
+          "y_true": 331.0,
+          "y_hat": 307.55
+        }
+      ]
+    },
+    "is_weekend": {
+      "strong_positive": [
+        {
+          "id": "2024-12-04 00:00:00",
+          "value": 2024.0,
+          "contribution": 17.16,
+          "y_true": 20.0,
+          "y_hat": 26.01
+        },
+        {
+          "id": "2024-10-18 03:00:00",
+          "value": 2024.0,
+          "contribution": 16.99,
+          "y_true": 6.0,
+          "y_hat": 25.25
+        },
+        {
+          "id": "2025-06-29 01:00:00",
+          "value": 2025.0,
+          "contribution": 16.88,
+          "y_true": 51.0,
+          "y_hat": 19.45
+        }
+      ],
+      "strong_negative": [
+        {
+          "id": "2024-11-21 05:00:00",
+          "value": 2024.0,
+          "contribution": -46.3,
+          "y_true": 176.0,
+          "y_hat": 161.13
+        },
+        {
+          "id": "2025-03-10 08:00:00",
+          "value": 2025.0,
+          "contribution": -46.13,
+          "y_true": 569.0,
+          "y_hat": 483.29
+        },
+        {
+          "id": "2025-03-01 08:00:00",
+          "value": 2025.0,
+          "contribution": -42.92,
+          "y_true": 94.0,
+          "y_hat": 88.95
+        }
+      ]
+    }
+  }
+}
