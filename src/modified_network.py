@@ -5,6 +5,10 @@ import re
 import subprocess
 import os
 from collections import defaultdict
+import datetime
+
+from pathlib import Path
+out_dir = Path("results/road-rebuild")
 
 # ---------------------------
 # Helpers
@@ -350,10 +354,15 @@ def apply_policy_updates(
     3) Ensure tlLogic programs exist and are ACTUATED + sized (using tuning config)
     4) Rebuild with netconvert
     """
-    merged  = os.path.join(out_dir, f"{out_prefix}_merged-gpt5.net.xml")
-    linked  = os.path.join(out_dir, f"{out_prefix}_linked-gpt5.net.xml")
-    ensured = os.path.join(out_dir, f"{out_prefix}_ensured-gpt5.net.xml")
-    rebuilt = os.path.join(out_dir, f"{out_prefix}_rebuilt-gpt5.net.xml")
+    reg = "\d{8}-\d{6}"
+    timestamp = re.search(reg, llm_json_path)
+    newDir = out_dir / timestamp.group(0)
+    os.makedirs(newDir, exist_ok=True)
+
+    merged  = os.path.join(newDir, f"{out_prefix}_merged-gpt5.net.xml")
+    linked  = os.path.join(newDir, f"{out_prefix}_linked-gpt5.net.xml")
+    ensured = os.path.join(newDir, f"{out_prefix}_ensured-gpt5.net.xml")
+    rebuilt = os.path.join(newDir, f"{out_prefix}_rebuilt-gpt5.net.xml")
 
     # Load tuning
     tuning_cfg = load_tuning_config(tuning_json_path)
@@ -377,6 +386,7 @@ def apply_policy_updates(
         print("\nRebuild failed. You can still inspect:")
         print(f"   {merged}\n   {linked}\n   {ensured}")
 
+    return os.path.join(newDir, f"{out_prefix}_rebuilt-gpt5.net.xml")
 
 # ---------------------------
 # CLI
@@ -385,9 +395,9 @@ def apply_policy_updates(
 if __name__ == "__main__":
     apply_policy_updates(
         original_net=os.path.join("traffic simulation", "2906", "osm.net.xml"),
-        llm_json_path="results/llm/response/raw_llm_output-gpt5.txt",
+        llm_json_path="results/llm/response/raw_llm_output-20251010-180659.txt",
         out_prefix="osm_policy",
         # netconvert_path=r"C:\Program Files (x86)\Eclipse\Sumo\bin\netconvert.exe",
-        out_dir="results/road-rebuild",
+        out_dir= out_dir,
         tuning_json_path="signal_tuning.json"   # drop a file with overrides here (optional)
     )

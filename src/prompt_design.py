@@ -5,14 +5,12 @@ import os
 import statistics
 import json
 
-# --- CONFIG ---
 NETWORK_FILE = "traffic simulation/2906/osm.net.xml"
 DETECTOR_FILE = "traffic simulation/2906/results/detector_output.xml"
 SUMMARY_FILE = "traffic simulation/2906/results/summary.xml"
 CONTEXT_FILE = "traffic simulation/2906/results/context.txt"
 OUTPUT_PROMPT = "policy_prompt.txt"
 
-# --- 1. Parse network info ---
 def parse_network(file):
     try:
         print("Parsing network structure...")
@@ -31,7 +29,6 @@ def parse_network(file):
 
         # --- Extract edges ---
         for e in root.findall("edge"):
-            # Skip internal function edges (like :123_0)
             if e.get("function") == "internal":
                 continue
 
@@ -81,7 +78,6 @@ def parse_network(file):
         print(f"Error reading network: {e}")
         return {}
 
-# --- 2. Parse detector output ---
 def parse_detectors(file):
     try:
         tree = ET.parse(file)
@@ -105,7 +101,6 @@ def parse_detectors(file):
     except Exception as e:
         return f"Error reading detectors: {e}"
 
-# --- 3. Parse summary file ---
 def parse_summary(file):
     try:
         tree = ET.parse(file)
@@ -130,7 +125,6 @@ def parse_summary(file):
     except Exception as e:
         return f"Error reading summary: {e}"
 
-# --- 4. Load context file ---
 def load_context(file):
     try:
         with open(file, "r", encoding="utf-8") as f:
@@ -138,7 +132,6 @@ def load_context(file):
     except:
         return "(No context file found.)"
     
-# --- 5. Load network file ---  
 def load_network(file):
     try:
         with open(file, "r", encoding="utf-8") as f:
@@ -180,13 +173,11 @@ def build_prompt(network_info, detector_info, summary_info, context_info):
     """)
     return prompt
 
-# --- MAIN EXECUTION ---
 if __name__ == "__main__":
     network_info = parse_network(NETWORK_FILE)
     detector_info = parse_detectors(DETECTOR_FILE)
     summary_info = parse_summary(SUMMARY_FILE)
     context_info = load_context(CONTEXT_FILE)
-    # network_text = load_network(NETWORK_FILE)
 
     prompt = build_prompt(network_info, detector_info, summary_info, context_info)
 
