@@ -273,7 +273,6 @@ def generate_policy_network(
         model="gpt-5",
         response_format={"type": "json_object"},
         messages=[{"role": "user", "content": prompt}],
-        # temperature=0.3,
     )
 
     message = response.choices[0].message
@@ -377,7 +376,6 @@ def build_prompt_2(network_info, comparison_info, detector_info):
         model="gpt-5",
         response_format={"type": "json_object"},
         messages=[{"role": "user", "content": prompt}],
-        # temperature=0.3,
     )
 
     message = response.choices[0].message
@@ -399,9 +397,8 @@ if __name__ == "__main__":
         original_net=os.path.join("traffic simulation", "2906", "osm.net.xml"),
         llm_json_path=file,
         out_prefix="osm_policy",
-        # netconvert_path=r"C:\Program Files (x86)\Eclipse\Sumo\bin\netconvert.exe",
         out_dir= Path("results/road-rebuild"),
-        tuning_json_path="signal_tuning.json"   # drop a file with overrides here (optional)
+        tuning_json_path="signal_tuning.json"   
     )
     print(f"Modified network saved to: {modifiednet}")
     resultdir = rs.run_simulation(modifiednet)
@@ -427,9 +424,8 @@ if __name__ == "__main__":
         original_net=modifiednet,
         llm_json_path=file,
         out_prefix="osm_policy",
-        # netconvert_path=r"C:\Program Files (x86)\Eclipse\Sumo\bin\netconvert.exe",
         out_dir= Path("results/road-rebuild"),
-        tuning_json_path="signal_tuning.json"   # drop a file with overrides here (optional)
+        tuning_json_path="signal_tuning.json"   
     )
     improved_resultdir = rs.run_simulation(modifiednet)
     print(f"Simulation results saved to: {resultdir}")

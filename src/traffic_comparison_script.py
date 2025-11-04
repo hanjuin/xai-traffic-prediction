@@ -170,9 +170,9 @@ def comparison_script_3(base_dir, new_dir, improved_dir):
             "baseline": b,
             "new": n,
             "improved": i,
-            "Δ(new−base)": _safe_delta(n, b),
-            "Δ(impr−new)": _safe_delta(i, n),
-            "Δ(impr−base)": _safe_delta(i, b),
+            "delta(new−base)": _safe_delta(n, b),
+            "delta(impr−new)": _safe_delta(i, n),
+            "delta(impr−base)": _safe_delta(i, b),
         }
 
     comp_rows = [
