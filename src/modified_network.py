@@ -50,7 +50,7 @@ def rebuild_with_netconvert(input_net, output_net, netconvert_path="netconvert")
             [netconvert_path, "-s", input_net, "-o", output_net],
             check=True, capture_output=True, text=True
         )
-        print(f"Rebuilt with netconvert → {output_net}")
+        print(f"Rebuilt with netconvert to {output_net}")
         return True
     except subprocess.CalledProcessError as e:
         print("netconvert failed:\n", e.stderr)
@@ -86,23 +86,23 @@ DEFAULT_TUNING = {
         },
         "yellow": 3                    # seconds for both yellows
     },
-    "per_tl": {
-        # "TL_25772784": {
-        #   "main_share": 0.7,
-        #   "green": {
-        #       "main": {"min": 12, "max": 80, "dur": 40},
-        #       "side": {"min": 7,  "max": 30, "dur": 20}
-        #   },
-        #   "yellow": 3
-        # }
-    }
+    # "per_tl": {
+    #     # "TL_25772784": {
+    #     #   "main_share": 0.7,
+    #     #   "green": {
+    #     #       "main": {"min": 12, "max": 80, "dur": 40},
+    #     #       "side": {"min": 7,  "max": 30, "dur": 20}
+    #     #   },
+    #     #   "yellow": 3
+    #     # }
+    # }
 }
 
 def load_tuning_config(path=None):
     if not path:
         return DEFAULT_TUNING
     if not os.path.exists(path):
-        print(f"ℹTuning file not found, using defaults: {path}")
+        print(f"Tuning file not found, using defaults: {path}")
         return DEFAULT_TUNING
     try:
         with open(path, "r", encoding="utf-8") as f:
@@ -111,7 +111,7 @@ def load_tuning_config(path=None):
         merged = DEFAULT_TUNING.copy()
         merged["defaults"] = {**DEFAULT_TUNING["defaults"], **cfg.get("defaults", {})}
         merged["per_tl"] = {**DEFAULT_TUNING["per_tl"], **cfg.get("per_tl", {})}
-        print(f"🧩 Loaded tuning config: {path}")
+        print(f"Loaded tuning config: {path}")
         return merged
     except Exception as e:
         print(f"Failed to load tuning config, using defaults. ({e})")
@@ -177,7 +177,7 @@ def merge_tlLogic_snippets(original_net, llm_json, merged_out_path):
     Merge new/updated <tlLogic> elements from LLM JSON and link junctions (type + tl attr).
     Returns parsed ElementTree for further processing.
     """
-    print("Merging tlLogic snippets…")
+    print("Merging tlLogic snippets...")
     tree = ET.parse(original_net)
     root = tree.getroot()
 
@@ -222,7 +222,7 @@ def merge_tlLogic_snippets(original_net, llm_json, merged_out_path):
             if j is not None:
                 j.set("type", "traffic_light")
                 j.set("tl", tl_id)
-                print(f"Linked junction {j.get('id')} → {tl_id}")
+                print(f"Linked junction {j.get('id')} to {tl_id}")
             else:
                 print(f"Could not find junction for tlLogic {tl_id}")
 
@@ -237,7 +237,7 @@ def link_connections_to_tllogic(tree, linked_out_path):
     - Remove uncontrolled="1"
     - Ensure linkIndex is compact 0..n-1
     """
-    print("Linking connections to traffic lights…")
+    print("Linking connections to traffic lights...")
     root = tree.getroot()
 
     # Build map of junction_id -> tl_id
@@ -273,7 +273,7 @@ def ensure_tllogic_programs(tree, tl_to_conns, ensured_out_path, tuning_cfg):
     Ensure each tlLogic exists and has actuated phases sized to number of controlled links,
     using per-junction tuning config when available.
     """
-    print("Ensuring tlLogic programs (actuated, tuned)…")
+    print("Ensuring tlLogic programs (actuated, tuned)...")
     root = tree.getroot()
     existing = {tl.get("id"): tl for tl in root.findall("tlLogic")}
     changed = 0

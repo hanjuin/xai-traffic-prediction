@@ -1,23 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
 
-        You are an expert in Intelligent Transport Systems (ITS) and SUMO traffic simulation.
-
-        ### GOAL
-        Your task is to improve the traffic performance of an existing SUMO network by **modifying only the signal timing** of existing traffic lights.
-
-        ### INPUTS
-        1. **Network XML**:
-            ```xml
-            <?xml version="1.0" encoding="UTF-8"?>
-
-<!-- generated on 2025-11-04 22:40:41 by Eclipse SUMO netconvert Version 1.22.0
+<!-- generated on 2025-11-04 22:35:49 by Eclipse SUMO netconvert Version 1.22.0
 <netconvertConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/netconvertConfiguration.xsd">
 
     <input>
-        <sumo-net-file value="results\road-rebuild\20251104-222243\osm_policy_ensured-gpt5.net.xml"/>
+        <sumo-net-file value="results\road-rebuild\20251010-180659\osm_policy_ensured-gpt5.net.xml"/>
     </input>
 
     <output>
-        <output-file value="results\road-rebuild\20251104-222243\osm_policy_rebuilt-gpt5.net.xml"/>
+        <output-file value="results\road-rebuild\20251010-180659\osm_policy_rebuilt-gpt5.net.xml"/>
         <output.street-names value="true"/>
     </output>
 
@@ -101,7 +92,10 @@
         <lane id=":25772779_2_3" index="3" disallow="bicycle tram rail_urban rail rail_electric rail_fast ship container cable_car subway aircraft wheelchair scooter drone" speed="13.89" length="19.81" shape="141.15,313.12 153.15,328.62"/>
     </edge>
     <edge id=":25772779_6" function="internal">
-        <lane id=":25772779_6_0" index="0" disallow="bicycle tram rail_urban rail rail_electric rail_fast ship container cable_car subway aircraft wheelchair scooter drone" speed="13.89" length="20.36" shape="141.15,313.12 145.74,317.67 150.41,320.08 154.85,321.28 158.78,322.20"/>
+        <lane id=":25772779_6_0" index="0" disallow="bicycle tram rail_urban rail rail_electric rail_fast ship container cable_car subway aircraft wheelchair scooter drone" speed="13.89" length="5.42" shape="141.15,313.12 144.99,316.93"/>
+    </edge>
+    <edge id=":25772779_7" function="internal">
+        <lane id=":25772779_7_0" index="0" disallow="bicycle tram rail_urban rail rail_electric rail_fast ship container cable_car subway aircraft wheelchair scooter drone" speed="13.89" length="14.95" shape="144.99,316.93 145.74,317.67 150.41,320.08 154.85,321.28 158.78,322.20"/>
     </edge>
     <edge id=":25772782_0" function="internal">
         <lane id=":25772782_0_0" index="0" disallow="tram rail_urban rail rail_electric rail_fast ship container cable_car subway aircraft wheelchair scooter drone" speed="13.89" length="22.63" shape="210.96,324.51 188.39,322.83"/>
@@ -507,23 +501,6 @@
         <param key="ref" value="SH 16"/>
     </edge>
 
-    <tlLogic id="25772779" type="actuated" programID="0" offset="0">
-        <phase duration="35" state="GGGGGrrr" minDur="10" maxDur="70"/>
-        <phase duration="3"  state="yyyyyrrr" minDur="3" maxDur="3"/>
-        <phase duration="25" state="rrrrrGGG" minDur="7" maxDur="40"/>
-        <phase duration="3"  state="rrrrryyy" minDur="3" maxDur="3"/>
-    </tlLogic>
-    <tlLogic id="25772784" type="actuated" programID="0" offset="5">
-        <phase duration="50" state="rrGGGG"/>
-        <phase duration="3"  state="rryyyy"/>
-        <phase duration="1"  state="rrrrrr"/>
-        <phase duration="10" state="rGrrrr"/>
-        <phase duration="3"  state="ryrrrr"/>
-        <phase duration="1"  state="rrrrrr"/>
-        <phase duration="20" state="Grrrrr"/>
-        <phase duration="3"  state="yrrrrr"/>
-        <phase duration="1"  state="rrrrrr"/>
-    </tlLogic>
     <tlLogic id="TL_cluster_1345480308_25773538" type="actuated" programID="0" offset="0">
         <phase duration="35" state="GGGGGGGrrrr" minDur="10" maxDur="70"/>
         <phase duration="3"  state="yyyyyyyrrrr" minDur="3" maxDur="3"/>
@@ -557,14 +534,14 @@
         <request index="3" response="00000" foes="00000" cont="0"/>
         <request index="4" response="00000" foes="00000" cont="0"/>
     </junction>
-    <junction id="25772779" type="traffic_light" x="145.43" y="316.15" incLanes="-7637457_0 -606859931_0 624523286_0 624523286_1" intLanes=":25772779_0_0 :25772779_1_0 :25772779_2_0 :25772779_2_1 :25772779_2_2 :25772779_2_3 :25772779_6_0" shape="160.29,317.64 158.28,323.72 156.45,323.43 156.06,323.63 156.00,324.07 156.29,324.75 156.93,325.66 149.37,331.58 137.31,316.00 144.98,310.23 147.33,312.97 149.41,314.62 151.50,315.55 153.84,316.13 156.69,316.70">
+    <junction id="25772779" type="priority" x="145.43" y="316.15" incLanes="-7637457_0 -606859931_0 624523286_0 624523286_1" intLanes=":25772779_0_0 :25772779_1_0 :25772779_2_0 :25772779_2_1 :25772779_2_2 :25772779_2_3 :25772779_7_0" shape="160.29,317.64 158.28,323.72 156.45,323.43 156.06,323.63 156.00,324.07 156.29,324.75 156.93,325.66 149.37,331.58 137.31,316.00 144.98,310.23 147.33,312.97 149.41,314.62 151.50,315.55 153.84,316.13 156.69,316.70">
         <request index="0" response="0000010" foes="0000010" cont="0"/>
         <request index="1" response="0000000" foes="1000001" cont="0"/>
         <request index="2" response="0010000" foes="0010000" cont="0"/>
         <request index="3" response="0110000" foes="0110000" cont="0"/>
         <request index="4" response="0000000" foes="0001100" cont="0"/>
         <request index="5" response="0000000" foes="0001000" cont="0"/>
-        <request index="6" response="0000010" foes="0000010" cont="0"/>
+        <request index="6" response="0000010" foes="0000010" cont="1"/>
     </junction>
     <junction id="25772782" type="priority" x="206.19" y="325.76" incLanes="-1286470869#1_0 -7637453_0 7637457_0" intLanes=":25772782_0_0 :25772782_4_0 :25772782_2_0 :25772782_3_0" shape="211.07,322.92 210.60,329.30 206.08,329.09 202.66,329.32 199.88,330.07 197.30,331.44 194.45,333.51 190.89,336.37 188.61,330.00 190.06,328.81 190.17,328.36 189.87,328.01 189.15,327.77 188.03,327.62 188.51,321.23">
         <request index="0" response="0000" foes="0000" cont="0"/>
@@ -572,7 +549,7 @@
         <request index="2" response="1000" foes="1000" cont="0"/>
         <request index="3" response="0000" foes="0110" cont="0"/>
     </junction>
-    <junction id="25772784" type="traffic_light" x="172.38" y="355.22" incLanes="7637453_0 -13718894_0 -13718894_1 606859931_0 606859931_1" intLanes=":25772784_0_0 :25772784_1_0 :25772784_2_0 :25772784_2_1 :25772784_4_0 :25772784_4_1" shape="174.79,344.37 180.49,347.35 179.22,349.88 178.86,351.18 178.70,352.49 178.72,353.82 178.93,355.17 166.44,357.96 165.89,355.65 165.39,353.96 164.83,352.61 164.09,351.34 163.08,349.87 161.68,347.94 170.73,344.25 172.02,345.78 172.69,345.99 173.37,345.82 174.07,345.28">
+    <junction id="25772784" type="priority" x="172.38" y="355.22" incLanes="7637453_0 -13718894_0 -13718894_1 606859931_0 606859931_1" intLanes=":25772784_0_0 :25772784_1_0 :25772784_2_0 :25772784_2_1 :25772784_4_0 :25772784_4_1" shape="174.79,344.37 180.49,347.35 179.22,349.88 178.86,351.18 178.70,352.49 178.72,353.82 178.93,355.17 166.44,357.96 165.89,355.65 165.39,353.96 164.83,352.61 164.09,351.34 163.08,349.87 161.68,347.94 170.73,344.25 172.02,345.78 172.69,345.99 173.37,345.82 174.07,345.28">
         <request index="0" response="111100" foes="111100" cont="0"/>
         <request index="1" response="000000" foes="000000" cont="0"/>
         <request index="2" response="001000" foes="001001" cont="0"/>
@@ -645,6 +622,7 @@
         <param key="origId" value="1345480308 25773538"/>
     </junction>
 
+    <junction id=":25772779_7_0" type="internal" x="144.99" y="316.93" incLanes=":25772779_6_0 -606859931_0" intLanes=":25772779_1_0"/>
     <junction id=":25772782_4_0" type="internal" x="206.90" y="324.93" incLanes=":25772782_1_0 7637457_0" intLanes=":25772782_3_0"/>
     <junction id=":25773189_6_0" type="internal" x="274.33" y="331.87" incLanes=":25773189_5_0 -1088700963_0" intLanes=":25773189_1_0 :25773189_2_0 :25773189_3_0"/>
 
@@ -654,14 +632,14 @@
     <connection from="-119880447#2" to="-867177331" fromLane="1" toLane="1" via=":1345480299_1_1" dir="s" state="M"/>
     <connection from="-1286470869#1" to="-7637457" fromLane="0" toLane="0" via=":25772782_0_0" dir="s" state="M"/>
     <connection from="-1286470869#1" to="7637453" fromLane="0" toLane="0" via=":25772782_1_0" dir="R" state="m"/>
-    <connection from="-13718894" to="-7637453" fromLane="0" toLane="0" via=":25772784_1_0" tl="25772784" linkIndex="0" dir="L" state="O"/>
-    <connection from="-13718894" to="-606859931" fromLane="0" toLane="0" via=":25772784_2_0" tl="25772784" linkIndex="1" dir="s" state="o"/>
-    <connection from="-13718894" to="-606859931" fromLane="1" toLane="0" via=":25772784_2_1" tl="25772784" linkIndex="2" dir="s" state="O"/>
-    <connection from="-606859931" to="-624523286" fromLane="0" toLane="0" via=":25772779_1_0" tl="25772779" linkIndex="0" dir="s" state="O"/>
+    <connection from="-13718894" to="-7637453" fromLane="0" toLane="0" via=":25772784_1_0" dir="L" state="M"/>
+    <connection from="-13718894" to="-606859931" fromLane="0" toLane="0" via=":25772784_2_0" dir="s" state="m"/>
+    <connection from="-13718894" to="-606859931" fromLane="1" toLane="0" via=":25772784_2_1" dir="s" state="M"/>
+    <connection from="-606859931" to="-624523286" fromLane="0" toLane="0" via=":25772779_1_0" dir="s" state="M"/>
     <connection from="-624524242" to="-13718894" fromLane="0" toLane="0" via=":1345480297_0_0" dir="s" state="M"/>
     <connection from="-624524242" to="-13718894" fromLane="1" toLane="1" via=":1345480297_0_1" dir="s" state="M"/>
     <connection from="-7637453" to="1286470869#0" fromLane="0" toLane="0" via=":25772782_2_0" dir="s" state="m"/>
-    <connection from="-7637457" to="-624523286" fromLane="0" toLane="0" via=":25772779_0_0" tl="25772779" linkIndex="1" dir="s" state="o"/>
+    <connection from="-7637457" to="-624523286" fromLane="0" toLane="0" via=":25772779_0_0" dir="s" state="m"/>
     <connection from="-7637536#1" to="-1286470869#1" fromLane="0" toLane="0" via=":25773189_0_0" dir="l" state="m"/>
     <connection from="-7637536#1" to="1088700963" fromLane="0" toLane="0" via=":25773189_1_0" dir="r" state="m"/>
     <connection from="-867177331" to="-624524242" fromLane="0" toLane="0" via=":8083240401_0_0" dir="s" state="M"/>
@@ -678,8 +656,8 @@
     <connection from="15089884" to="623950255" fromLane="0" toLane="0" via=":5891781820_0_0" dir="s" state="M"/>
     <connection from="15089884" to="623950255" fromLane="1" toLane="1" via=":5891781820_0_1" dir="s" state="M"/>
     <connection from="15089884" to="623950255" fromLane="1" toLane="2" via=":5891781820_0_2" dir="s" state="M"/>
-    <connection from="606859931" to="867177333" fromLane="0" toLane="0" via=":25772784_4_0" tl="25772784" linkIndex="3" dir="s" state="O"/>
-    <connection from="606859931" to="867177333" fromLane="1" toLane="1" via=":25772784_4_1" tl="25772784" linkIndex="4" dir="s" state="O"/>
+    <connection from="606859931" to="867177333" fromLane="0" toLane="0" via=":25772784_4_0" dir="s" state="M"/>
+    <connection from="606859931" to="867177333" fromLane="1" toLane="1" via=":25772784_4_1" dir="s" state="M"/>
     <connection from="623950256" to="119880453#0" fromLane="0" toLane="0" via=":1345480290_0_0" dir="L" state="M"/>
     <connection from="623950256" to="1246214209#0" fromLane="0" toLane="0" via=":1345480290_1_0" dir="s" state="M"/>
     <connection from="623950256" to="1246214209#0" fromLane="0" toLane="1" via=":1345480290_1_1" dir="s" state="M"/>
@@ -704,14 +682,14 @@
     <connection from="624515490#0" to="15089884" fromLane="1" toLane="1" via=":cluster_1345480308_25773538_3_1" tl="TL_cluster_1345480308_25773538" linkIndex="6" dir="s" state="O"/>
     <connection from="624515490#0" to="-119880447#2" fromLane="2" toLane="0" via=":cluster_1345480308_25773538_5_0" tl="TL_cluster_1345480308_25773538" linkIndex="7" dir="r" state="o"/>
     <connection from="624515490#0" to="-119880447#2" fromLane="3" toLane="1" via=":cluster_1345480308_25773538_5_1" tl="TL_cluster_1345480308_25773538" linkIndex="8" dir="r" state="o"/>
-    <connection from="624523286" to="606859931" fromLane="0" toLane="0" via=":25772779_2_0" tl="25772779" linkIndex="2" dir="s" state="o"/>
-    <connection from="624523286" to="606859931" fromLane="0" toLane="1" via=":25772779_2_1" tl="25772779" linkIndex="3" dir="s" state="o"/>
-    <connection from="624523286" to="606859931" fromLane="1" toLane="0" via=":25772779_2_2" tl="25772779" linkIndex="4" dir="s" state="O"/>
-    <connection from="624523286" to="606859931" fromLane="1" toLane="1" via=":25772779_2_3" tl="25772779" linkIndex="5" dir="s" state="O"/>
-    <connection from="624523286" to="7637457" fromLane="1" toLane="0" via=":25772779_6_0" tl="25772779" linkIndex="6" dir="R" state="o"/>
+    <connection from="624523286" to="606859931" fromLane="0" toLane="0" via=":25772779_2_0" dir="s" state="m"/>
+    <connection from="624523286" to="606859931" fromLane="0" toLane="1" via=":25772779_2_1" dir="s" state="m"/>
+    <connection from="624523286" to="606859931" fromLane="1" toLane="0" via=":25772779_2_2" dir="s" state="M"/>
+    <connection from="624523286" to="606859931" fromLane="1" toLane="1" via=":25772779_2_3" dir="s" state="M"/>
+    <connection from="624523286" to="7637457" fromLane="1" toLane="0" via=":25772779_6_0" dir="R" state="m"/>
     <connection from="624524242" to="867177331" fromLane="0" toLane="0" via=":8083240401_2_0" dir="s" state="M"/>
     <connection from="624524242" to="867177331" fromLane="1" toLane="1" via=":8083240401_2_1" dir="s" state="M"/>
-    <connection from="7637453" to="867177333" fromLane="0" toLane="1" via=":25772784_0_0" tl="25772784" linkIndex="5" dir="s" state="o"/>
+    <connection from="7637453" to="867177333" fromLane="0" toLane="1" via=":25772784_0_0" dir="s" state="m"/>
     <connection from="7637457" to="1286470869#0" fromLane="0" toLane="0" via=":25772782_3_0" dir="s" state="M"/>
     <connection from="867177330" to="624515485" fromLane="0" toLane="0" via=":8083240396_0_0" dir="s" state="M"/>
     <connection from="867177330" to="624515485" fromLane="1" toLane="1" via=":8083240396_0_1" dir="s" state="M"/>
@@ -750,7 +728,8 @@
     <connection from=":25772779_2" to="606859931" fromLane="1" toLane="1" dir="s" state="M"/>
     <connection from=":25772779_2" to="606859931" fromLane="2" toLane="0" dir="s" state="M"/>
     <connection from=":25772779_2" to="606859931" fromLane="3" toLane="1" dir="s" state="M"/>
-    <connection from=":25772779_6" to="7637457" fromLane="0" toLane="0" dir="R" state="M"/>
+    <connection from=":25772779_6" to="7637457" fromLane="0" toLane="0" via=":25772779_7_0" dir="R" state="m"/>
+    <connection from=":25772779_7" to="7637457" fromLane="0" toLane="0" dir="R" state="M"/>
     <connection from=":25772782_0" to="-7637457" fromLane="0" toLane="0" dir="s" state="M"/>
     <connection from=":25772782_1" to="7637453" fromLane="0" toLane="0" via=":25772782_4_0" dir="R" state="m"/>
     <connection from=":25772782_4" to="7637453" fromLane="0" toLane="0" dir="R" state="M"/>
@@ -803,214 +782,3 @@
     <connection from=":cluster_1345480308_25773538_7" to="15089884" fromLane="1" toLane="1" dir="r" state="M"/>
 
 </net>
-
-            ```
-        2. **Comparison between baseline and new simulation results**:
-            ```csv
-            metric,baseline,new,delta (new - base)
-Simulation end time (s),3599.0,3599.0,0.0
-Total arrived vehicles,1647.0,1793.0,146.0
-Total teleports,58.0,4.0,-54.0
-Vehicles still running at end,129.0,115.0,-14.0
-Vehicles waiting at end,3916.0,3784.0,-132.0
-Avg. mean speed over steps (m/s),1.3233,1.5179416666666667,0.19464166666666682
-Mean travel time at end (s),222.94,206.77,-16.169999999999987
-Avg. mean waiting time over steps (s),359.35250833333333,504.52149166666663,145.1689833333333
-# summary steps,3600.0,3600.0,0.0
-Detector interval rows,996.0,996.0,0.0
-Detector count,19.0,19.0,0.0
-Total nVehEntered across detectors,3986.0,4292.0,306.0
-Total nVehContrib across detectors,3947.0,4247.0,300.0
-Avg detector speed over intervals (m/s),7.496237006237009,5.925023255813955,-1.5712137504230537
-
-            ```
-        3. **Detector Info**:
-            ```json
-            [
-  {
-    "id": "loop_-1088700963_0",
-    "avg_flow": 765.0,
-    "avg_speed": 7.304333333333333,
-    "avg_occupancy": 18.794333333333334,
-    "congestion_level": "High"
-  },
-  {
-    "id": "loop_-1286470869#1_0",
-    "avg_flow": 622.0,
-    "avg_speed": 5.5225,
-    "avg_occupancy": 56.5705,
-    "congestion_level": "High"
-  },
-  {
-    "id": "loop_-13718894_0",
-    "avg_flow": 227.0,
-    "avg_speed": 3.170666666666667,
-    "avg_occupancy": 87.15266666666666,
-    "congestion_level": "High"
-  },
-  {
-    "id": "loop_-13718894_1",
-    "avg_flow": 110.0,
-    "avg_speed": 3.3793333333333333,
-    "avg_occupancy": 14.895000000000001,
-    "congestion_level": "High"
-  },
-  {
-    "id": "loop_-624523286_0",
-    "avg_flow": 207.0,
-    "avg_speed": 5.533333333333334,
-    "avg_occupancy": 34.244166666666665,
-    "congestion_level": "High"
-  },
-  {
-    "id": "loop_-7637536#1_0",
-    "avg_flow": 83.0,
-    "avg_speed": 0.174,
-    "avg_occupancy": 93.56666666666666,
-    "congestion_level": "High"
-  },
-  {
-    "id": "loop_119880451_0",
-    "avg_flow": 334.0,
-    "avg_speed": 6.218333333333334,
-    "avg_occupancy": 8.952499999999999,
-    "congestion_level": "High"
-  },
-  {
-    "id": "loop_119880453#0_0",
-    "avg_flow": 212.0,
-    "avg_speed": 3.367,
-    "avg_occupancy": 7.4558333333333335,
-    "congestion_level": "High"
-  },
-  {
-    "id": "loop_1246214209#0_0",
-    "avg_flow": 1.0,
-    "avg_speed": -0.9786666666666667,
-    "avg_occupancy": 0.4918333333333333,
-    "congestion_level": NaN
-  },
-  {
-    "id": "loop_1246214209#0_1",
-    "avg_flow": 57.0,
-    "avg_speed": 2.056166666666667,
-    "avg_occupancy": 13.6395,
-    "congestion_level": "High"
-  },
-  {
-    "id": "loop_1246214209#0_2",
-    "avg_flow": 23.0,
-    "avg_speed": -0.10883333333333337,
-    "avg_occupancy": 7.265666666666666,
-    "congestion_level": NaN
-  },
-  {
-    "id": "loop_1286470869#0_0",
-    "avg_flow": 477.0,
-    "avg_speed": 7.6075,
-    "avg_occupancy": 9.923833333333333,
-    "congestion_level": "High"
-  },
-  {
-    "id": "loop_624515490#0_0",
-    "avg_flow": 36.0,
-    "avg_speed": 1.0286666666666666,
-    "avg_occupancy": 7.956166666666666,
-    "congestion_level": "High"
-  },
-  {
-    "id": "loop_624515490#0_1",
-    "avg_flow": 4.0,
-    "avg_speed": -0.9156666666666666,
-    "avg_occupancy": 4.3345,
-    "congestion_level": NaN
-  },
-  {
-    "id": "loop_624515490#0_2",
-    "avg_flow": 94.0,
-    "avg_speed": 0.9028333333333334,
-    "avg_occupancy": 94.66633333333333,
-    "congestion_level": "High"
-  },
-  {
-    "id": "loop_624515490#0_3",
-    "avg_flow": 36.0,
-    "avg_speed": 1.0388333333333333,
-    "avg_occupancy": 4.170333333333334,
-    "congestion_level": "High"
-  },
-  {
-    "id": "loop_624523286_1",
-    "avg_flow": 303.0,
-    "avg_speed": 4.695,
-    "avg_occupancy": 83.90833333333333,
-    "congestion_level": "High"
-  },
-  {
-    "id": "loop_867177333_0",
-    "avg_flow": 404.0,
-    "avg_speed": 10.283999999999999,
-    "avg_occupancy": 6.4783333333333335,
-    "congestion_level": "Moderate"
-  },
-  {
-    "id": "loop_867177333_1",
-    "avg_flow": 252.0,
-    "avg_speed": 10.722000000000001,
-    "avg_occupancy": 3.8695,
-    "congestion_level": "Moderate"
-  }
-]
-            ```
-
-        ### TASK
-        Focus on **optimizing the signal timing** of existing traffic lights to reduce congestion and improve flow.  
-        Do **NOT** add or remove any traffic lights, junctions, or edges.
-
-        Your analysis should:
-        1. Identify which junctions are causing delays (low average speed or high occupancy).
-        2. Propose realistic timing adjustments (e.g., increase green time for high-flow directions, reduce red time for low-demand approaches).
-        3. Ensure the total cycle time remains consistent and safe (typically 60–120 s).
-        4. Justify each change based on data.
-
-        ### OUTPUT FORMAT
-        Respond in valid JSON using this schema:
-        {
-  "reasoning": [
-    {
-      "edge_or_junction_id": "string",
-      "issue_detected": "string",
-      "proposed_policy": "string",
-      "justification": "string"
-    }
-  ],
-  "actions": [
-    {
-      "type": "update_attribute|create_element",
-      "target": "tlLogic",
-      "id": "string",
-      "attribute": "offset|phase.duration",
-      "new_value": "offset=NN; phase[0]=..; phase[1]=.. (if splits changed)",
-      "corridor": {
-        "id": "string (e.g., 'Albert_St_Northbound')",
-        "order": [
-          "J1",
-          "J2",
-          "J3"
-        ],
-        "progression_speed_kmh": 40,
-        "segment_lengths_m": [
-          180,
-          220
-        ],
-        "reference_junction": "J1"
-      },
-      "xml_snippet": "<tlLogic ...>...</tlLogic>"
-    }
-  ],
-  "modified_snippets": [
-    "<edge ...>...</edge>",
-    "<junction ...>...</junction>",
-    "<tlLogic ...>...</tlLogic>"
-  ]
-}

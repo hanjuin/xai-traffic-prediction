@@ -392,13 +392,15 @@ def build_prompt_2(network_info, comparison_info, detector_info):
 # 4. Main entry
 # ------------------------------------------------------------
 if __name__ == "__main__":
-    file = generate_policy_network()
+
+    # file = generate_policy_network()
+    file = "results/llm/response/raw_llm_output-20251104-222243.txt"  # pre-generated for testing
     modifiednet = mn.apply_policy_updates(
         original_net=os.path.join("traffic simulation", "2906", "osm.net.xml"),
         llm_json_path=file,
         out_prefix="osm_policy",
         out_dir= Path("results/road-rebuild"),
-        tuning_json_path="signal_tuning.json"   
+        # tuning_json_path="signal_tuning.json"
     )
     print(f"Modified network saved to: {modifiednet}")
     resultdir = rs.run_simulation(modifiednet)
@@ -425,7 +427,7 @@ if __name__ == "__main__":
         llm_json_path=file,
         out_prefix="osm_policy",
         out_dir= Path("results/road-rebuild"),
-        tuning_json_path="signal_tuning.json"   
+        # tuning_json_path="signal_tuning.json"   
     )
     improved_resultdir = rs.run_simulation(modifiednet)
     print(f"Simulation results saved to: {resultdir}")
