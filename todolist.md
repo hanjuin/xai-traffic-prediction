@@ -51,24 +51,3 @@
 
 * [X] ~~*identified why XAI result make the LLM worse*~~ [2025-10-13]
 * [X] ~~*do another LLM focus on traffic timing only (green wave method)*~~ [2025-10-11]
-
-
-
-
-
-
-* [ ] strutural abstract (punchy)
-
-* [ ] why is the problem important
-* [ ] what the context
-* [ ] how - an overview
-* [ ] how much - what are our contribution worth (novelty, contribution)
-* [ ] https://zenodo.org
-
-
-
-4606
-3869
-
-8164
-9168
